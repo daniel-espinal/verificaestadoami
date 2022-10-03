@@ -8,7 +8,7 @@ namespace VerificaEstadoAMI
     {
         private SqlConnection vConexion;
         private String sConexion;
-
+        // CEMC 03.10.2022
         public clConexion()
         {
             sConexion = "Server=192.168.100.28;Database=eehApps;User Id=appsoe;Password=:S032017*;"; //ConfigurationManager.AppSettings["bd"].ToString();
