@@ -1,4 +1,6 @@
-﻿using System;
+﻿using solg.lib.netframework;
+using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -11,8 +13,7 @@ namespace VerificaEstadoAMI
         // CEMC 03.10.2022
         public clConexion()
         {
-            sConexion = "Server=192.168.100.28;Database=eehApps;User Id=appsoe;Password=:S032017*;"; //ConfigurationManager.AppSettings["bd"].ToString();
-            //sConexion = "Server=192.168.100.17;Database=eehApps;User Id=wendel.padilla;Password=123456"; //ConfigurationManager.AppSettings["bd"].ToString();
+            sConexion = Settings.GetInstance().GetAppSetting("bd", true); //ConfigurationManager.AppSettings["bd"].ToString();
             vConexion = new SqlConnection(sConexion);
         }
 
