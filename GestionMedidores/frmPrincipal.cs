@@ -37,7 +37,7 @@ namespace VerificaEstadoAMI
                 Stream strStreamW;
                 StreamWriter strStreamWriter;
                 string carpeta = Application.StartupPath + @"\Log\";
-                string FilePath = carpeta + "Errores_" + DateTime.Today.ToString("dd_MM_yyyy") + ".txt";
+                string FilePath = carpeta + "Log_" + DateTime.Today.ToString("dd_MM_yyyy") + ".txt";
 
                 if (File.Exists(FilePath))
                 {
@@ -89,11 +89,13 @@ namespace VerificaEstadoAMI
                                 clC.InsertarBitacora(dr["OS"].ToString(), dr["CLAVE"].ToString(), dr["METERNAME"].ToString(), dr["Schedule"].ToString(), "1", "Solicitud Procesada Correctamente", "appsoeeh", fechaInicial.ToString("yyyyMMdd hh:mm:ss"), DateTime.Now.ToString("yyyyMMdd hh:mm:ss"));
                             }
 
-                            AddText($"{dr["CLAVE"]} - {dr["OS"]} - {dr["METERNAME"]} - {vEstado}");
+                            log($"{dr["CLAVE"]} - {dr["OS"]} - '{dr["METERNAME"]}' - '{vEstado}'");
+                            AddText($"{dr["CLAVE"]} - {dr["OS"]} - '{dr["METERNAME"]}' - '{vEstado}'");
                         }
                         catch (Exception ex)
                         {
                             AddText(ex.Message);
+                            log(ex.Message);
                         }
                     }
                 }
@@ -102,8 +104,9 @@ namespace VerificaEstadoAMI
             catch (Exception ex)
             {
                 AddText(ex.Message);
+                log(ex.Message);
             }
-            
+
             tGeneral.Interval = Convert.ToInt32(ConfigurationManager.AppSettings["Timer"]);
         }
 
@@ -117,7 +120,7 @@ namespace VerificaEstadoAMI
                 CD_ServerSoap.loadActionCode vResponseState = vCD.GetCDMeterState(medidor);
                 vEstado = vResponseState.ToString();
             }
-            catch (Exception) { }
+            catch (Exception ex ) { log($"Error: {medidor} - {ex.Message}" ); }
             return vEstado;
         }
 
