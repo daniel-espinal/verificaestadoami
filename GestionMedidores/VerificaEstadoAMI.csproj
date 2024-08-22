@@ -52,7 +52,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="solg.lib.netframework, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\solg.lib.netframework.1.2.0\lib\net48\solg.lib.netframework.dll</HintPath>
+      <HintPath>bin\solg.lib.netframework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

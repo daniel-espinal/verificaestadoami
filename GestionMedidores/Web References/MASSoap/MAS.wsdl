@@ -7397,10 +7397,10 @@
   </wsdl:binding>
   <wsdl:service name="MAS">
     <wsdl:port name="MASSoap12" binding="tns:MASSoap12">
-      <soap12:address location="http://192.168.100.66/axis2/services/MAS.MASSoap12/" />
+      <soap12:address location="http://192.168.100.41/axis2/services/MAS.MASSoap12/" />
     </wsdl:port>
     <wsdl:port name="MASSoap" binding="tns:MASSoap">
-      <soap:address location="http://192.168.100.66/axis2/services/MAS.MASSoap/" />
+      <soap:address location="http://192.168.100.41/axis2/services/MAS.MASSoap/" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

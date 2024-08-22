@@ -9,10 +9,10 @@
       <Value Profile="(Default)">10000</Value>
     </Setting>
     <Setting Name="GestionMedidores_MASSoap_MAS" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://192.168.100.66/axis2/services/MAS.MASSoap12/</Value>
+      <Value Profile="(Default)">http://192.168.100.41/axis2/services/MAS.MASSoap12/</Value>
     </Setting>
     <Setting Name="GestionMedidores_CD_ServerSoap_CD_Server" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://192.168.100.66/axis2/services/CD_Server.CD_ServerSoap/</Value>
+      <Value Profile="(Default)">http://192.168.100.41/axis2/services/CD_Server.CD_ServerSoap/</Value>
     </Setting>
   </Settings>
 </SettingsFile>

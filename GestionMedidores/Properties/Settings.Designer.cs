@@ -44,7 +44,7 @@ namespace VerificaEstadoAMI.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://192.168.100.66/axis2/services/MAS.MASSoap12/")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://192.168.100.41/axis2/services/MAS.MASSoap12/")]
         public string GestionMedidores_MASSoap_MAS {
             get {
                 return ((string)(this["GestionMedidores_MASSoap_MAS"]));
@@ -54,7 +54,7 @@ namespace VerificaEstadoAMI.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://192.168.100.66/axis2/services/CD_Server.CD_ServerSoap/")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://192.168.100.41/axis2/services/CD_Server.CD_ServerSoap/")]
         public string GestionMedidores_CD_ServerSoap_CD_Server {
             get {
                 return ((string)(this["GestionMedidores_CD_ServerSoap_CD_Server"]));

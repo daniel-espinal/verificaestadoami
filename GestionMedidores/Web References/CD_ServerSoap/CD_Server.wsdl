@@ -7328,10 +7328,10 @@
   </wsdl:binding>
   <wsdl:service name="CD_Server">
     <wsdl:port name="CD_ServerSoap" binding="tns:CD_ServerSoap">
-      <soap:address location="http://192.168.100.66/axis2/services/CD_Server.CD_ServerSoap/" />
+      <soap:address location="http://192.168.100.41/axis2/services/CD_Server.CD_ServerSoap/" />
     </wsdl:port>
     <wsdl:port name="CD_ServerSoap12" binding="tns:CD_ServerSoap12">
-      <soap12:address location="http://192.168.100.66/axis2/services/CD_Server.CD_ServerSoap12/" />
+      <soap12:address location="http://192.168.100.41/axis2/services/CD_Server.CD_ServerSoap12/" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
