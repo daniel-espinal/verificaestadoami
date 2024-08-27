@@ -74,7 +74,7 @@ namespace VerificaEstadoAMI.MASSoap {
         
         /// <remarks/>
         public MAS() {
-            this.Url = "http://192.168.100.41/axis2/services/MAS.MASSoap/";
+            this.Url = "http://192.168.100.41/ws-mas/services/MAS";
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -1570,6 +1570,161 @@ namespace VerificaEstadoAMI.MASSoap {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
     public partial class ReportFooterType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
+    public partial class SynergyNetNotificationScheduleType {
+        
+        private string typeField;
+        
+        private string depField;
+        
+        private int triggerField;
+        
+        private int timeStartOffsetField;
+        
+        private int periodField;
+        
+        private int retryIntervalField;
+        
+        private int maxRetriesField;
+        
+        private int priorityField;
+        
+        private int randomFactorField;
+        
+        private int includeStatusField;
+        
+        private int ackRequiredField;
+        
+        private int enabledField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Type {
+            get {
+                return this.typeField;
+            }
+            set {
+                this.typeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Dep {
+            get {
+                return this.depField;
+            }
+            set {
+                this.depField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Trigger {
+            get {
+                return this.triggerField;
+            }
+            set {
+                this.triggerField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TimeStartOffset {
+            get {
+                return this.timeStartOffsetField;
+            }
+            set {
+                this.timeStartOffsetField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Period {
+            get {
+                return this.periodField;
+            }
+            set {
+                this.periodField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int RetryInterval {
+            get {
+                return this.retryIntervalField;
+            }
+            set {
+                this.retryIntervalField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int MaxRetries {
+            get {
+                return this.maxRetriesField;
+            }
+            set {
+                this.maxRetriesField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Priority {
+            get {
+                return this.priorityField;
+            }
+            set {
+                this.priorityField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int RandomFactor {
+            get {
+                return this.randomFactorField;
+            }
+            set {
+                this.randomFactorField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int IncludeStatus {
+            get {
+                return this.includeStatusField;
+            }
+            set {
+                this.includeStatusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int AckRequired {
+            get {
+                return this.ackRequiredField;
+            }
+            set {
+                this.ackRequiredField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Enabled {
+            get {
+                return this.enabledField;
+            }
+            set {
+                this.enabledField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -6491,6 +6646,13 @@ namespace VerificaEstadoAMI.MASSoap {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ScheduleNameListBean))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ScheduleNameBean))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeviceOnProfileBean))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterDataBean))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GKAssociatedNodesBean))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NodesOrphanedBean))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DataSetBean))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Han900MhzRecordType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ElementFirmwareUpgradeStatusType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(JobStatusInformationType))]
@@ -6499,6 +6661,7 @@ namespace VerificaEstadoAMI.MASSoap {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ORR_LANOperationTimeEntryType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConnectDisconnectAuditEntryType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ComponentBean))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(JobStatusReportBean))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(NameValuePairBean))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DailyPerformanceMetricBean))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeviceSearchResultBean))]
@@ -6526,6 +6689,8 @@ namespace VerificaEstadoAMI.MASSoap {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConfigProfileRecordType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(GasConfigProfileRecordType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(WICCheckinConfigProfileRecordType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InstrumentationDataMonitoringProfileRecordType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Rex2DataFormatProfileReportRecordType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(A3NICDataFormatProfileReportRecordType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Rex2Set2IntervalProfileReportRecordType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Rex2Set1IntervalProfileReportRecordType))]
@@ -6533,6 +6698,10 @@ namespace VerificaEstadoAMI.MASSoap {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DemandLimitRex2ConfigProfileRecordType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(GkSchedule2ConfigProfileRecordType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(GkScheduleConfigProfileRecordType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SynergyNetNotificationScheduleProfileRecordType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReadingFilterConfigProfileRecordType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DisplayAdvancedRex2V2ConfigProfileRecordType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DisplayAdvancedRex2ConfigProfileRecordType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DisplayExtendedRex2ConfigProfileRecordType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DisplayRex2ConfigProfileRecordType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DisplayRex1ConfigProfileRecordType))]
@@ -6650,6 +6819,819 @@ namespace VerificaEstadoAMI.MASSoap {
             }
             set {
                 this.indexField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
+    public partial class ScheduleNameListBean : RecordType {
+        
+        private string scheduleNameField;
+        
+        /// <remarks/>
+        public string ScheduleName {
+            get {
+                return this.scheduleNameField;
+            }
+            set {
+                this.scheduleNameField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
+    public partial class ScheduleNameBean : RecordType {
+        
+        private string scheduleNameField;
+        
+        private string scheduleValueField;
+        
+        private int scheduleIdField;
+        
+        /// <remarks/>
+        public string ScheduleName {
+            get {
+                return this.scheduleNameField;
+            }
+            set {
+                this.scheduleNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ScheduleValue {
+            get {
+                return this.scheduleValueField;
+            }
+            set {
+                this.scheduleValueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ScheduleId {
+            get {
+                return this.scheduleIdField;
+            }
+            set {
+                this.scheduleIdField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
+    public partial class DeviceOnProfileBean : RecordType {
+        
+        private string deviceNameField;
+        
+        private string typeField;
+        
+        private string statusField;
+        
+        private string accountField;
+        
+        private string assignedField;
+        
+        private string syncField;
+        
+        private string descField;
+        
+        /// <remarks/>
+        public string DeviceName {
+            get {
+                return this.deviceNameField;
+            }
+            set {
+                this.deviceNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Type {
+            get {
+                return this.typeField;
+            }
+            set {
+                this.typeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Status {
+            get {
+                return this.statusField;
+            }
+            set {
+                this.statusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Account {
+            get {
+                return this.accountField;
+            }
+            set {
+                this.accountField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Assigned {
+            get {
+                return this.assignedField;
+            }
+            set {
+                this.assignedField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Sync {
+            get {
+                return this.syncField;
+            }
+            set {
+                this.syncField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Desc {
+            get {
+                return this.descField;
+            }
+            set {
+                this.descField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
+    public partial class MeterDataBean : RecordType {
+        
+        private int meterIrnField;
+        
+        private string meterNameField;
+        
+        private string serialNumField;
+        
+        private string accountNameField;
+        
+        private int meterStyleIrnField;
+        
+        private string meterTypeField;
+        
+        private string meterTypeDescField;
+        
+        private string lanIDField;
+        
+        private string installDateField;
+        
+        private string lastConnectTimeField;
+        
+        private string lastDisconnectTimeField;
+        
+        private object registrationDateField;
+        
+        private int gkIrnField;
+        
+        private object collectorNameField;
+        
+        private int meterInfoField;
+        
+        private string stateField;
+        
+        private string inventoriedDateField;
+        
+        private string typeDescriptionField;
+        
+        /// <remarks/>
+        public int MeterIrn {
+            get {
+                return this.meterIrnField;
+            }
+            set {
+                this.meterIrnField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string MeterName {
+            get {
+                return this.meterNameField;
+            }
+            set {
+                this.meterNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SerialNum {
+            get {
+                return this.serialNumField;
+            }
+            set {
+                this.serialNumField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string AccountName {
+            get {
+                return this.accountNameField;
+            }
+            set {
+                this.accountNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int MeterStyleIrn {
+            get {
+                return this.meterStyleIrnField;
+            }
+            set {
+                this.meterStyleIrnField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string MeterType {
+            get {
+                return this.meterTypeField;
+            }
+            set {
+                this.meterTypeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string MeterTypeDesc {
+            get {
+                return this.meterTypeDescField;
+            }
+            set {
+                this.meterTypeDescField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string LanID {
+            get {
+                return this.lanIDField;
+            }
+            set {
+                this.lanIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string InstallDate {
+            get {
+                return this.installDateField;
+            }
+            set {
+                this.installDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string LastConnectTime {
+            get {
+                return this.lastConnectTimeField;
+            }
+            set {
+                this.lastConnectTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string LastDisconnectTime {
+            get {
+                return this.lastDisconnectTimeField;
+            }
+            set {
+                this.lastDisconnectTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public object RegistrationDate {
+            get {
+                return this.registrationDateField;
+            }
+            set {
+                this.registrationDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int GkIrn {
+            get {
+                return this.gkIrnField;
+            }
+            set {
+                this.gkIrnField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public object CollectorName {
+            get {
+                return this.collectorNameField;
+            }
+            set {
+                this.collectorNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int MeterInfo {
+            get {
+                return this.meterInfoField;
+            }
+            set {
+                this.meterInfoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string State {
+            get {
+                return this.stateField;
+            }
+            set {
+                this.stateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string InventoriedDate {
+            get {
+                return this.inventoriedDateField;
+            }
+            set {
+                this.inventoriedDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string TypeDescription {
+            get {
+                return this.typeDescriptionField;
+            }
+            set {
+                this.typeDescriptionField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
+    public partial class GKAssociatedNodesBean : RecordType {
+        
+        private string gKNameField;
+        
+        private string typeField;
+        
+        private string typeDescriptionField;
+        
+        private int meterIrnField;
+        
+        private string meterNameField;
+        
+        private string lanidField;
+        
+        private string serialNumberField;
+        
+        private string installDateField;
+        
+        private string lastRegistrationField;
+        
+        private string lastRegisterReadField;
+        
+        private string lastModifiedDateField;
+        
+        private string lastConnectTimeField;
+        
+        private string lastDownloadField;
+        
+        private int readAttemptsField;
+        
+        private int readResponsesField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string GKName {
+            get {
+                return this.gKNameField;
+            }
+            set {
+                this.gKNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Type {
+            get {
+                return this.typeField;
+            }
+            set {
+                this.typeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string TypeDescription {
+            get {
+                return this.typeDescriptionField;
+            }
+            set {
+                this.typeDescriptionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int MeterIrn {
+            get {
+                return this.meterIrnField;
+            }
+            set {
+                this.meterIrnField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string MeterName {
+            get {
+                return this.meterNameField;
+            }
+            set {
+                this.meterNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Lanid {
+            get {
+                return this.lanidField;
+            }
+            set {
+                this.lanidField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SerialNumber {
+            get {
+                return this.serialNumberField;
+            }
+            set {
+                this.serialNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string InstallDate {
+            get {
+                return this.installDateField;
+            }
+            set {
+                this.installDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string LastRegistration {
+            get {
+                return this.lastRegistrationField;
+            }
+            set {
+                this.lastRegistrationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string LastRegisterRead {
+            get {
+                return this.lastRegisterReadField;
+            }
+            set {
+                this.lastRegisterReadField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string LastModifiedDate {
+            get {
+                return this.lastModifiedDateField;
+            }
+            set {
+                this.lastModifiedDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string LastConnectTime {
+            get {
+                return this.lastConnectTimeField;
+            }
+            set {
+                this.lastConnectTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string LastDownload {
+            get {
+                return this.lastDownloadField;
+            }
+            set {
+                this.lastDownloadField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ReadAttempts {
+            get {
+                return this.readAttemptsField;
+            }
+            set {
+                this.readAttemptsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ReadResponses {
+            get {
+                return this.readResponsesField;
+            }
+            set {
+                this.readResponsesField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
+    public partial class NodesOrphanedBean : RecordType {
+        
+        private int meterIrnField;
+        
+        private string deviceNameField;
+        
+        private string serialNumberField;
+        
+        private string installDateField;
+        
+        private string lastRegistrationField;
+        
+        private string lastRegisterReadField;
+        
+        private string lastIntervalDataReadField;
+        
+        private string lanidField;
+        
+        private string deviceTypeField;
+        
+        private string typeDescriptionField;
+        
+        private string latitudeField;
+        
+        private string longitudeField;
+        
+        private string prevGkField;
+        
+        private string accountNumberField;
+        
+        /// <remarks/>
+        public int MeterIrn {
+            get {
+                return this.meterIrnField;
+            }
+            set {
+                this.meterIrnField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DeviceName {
+            get {
+                return this.deviceNameField;
+            }
+            set {
+                this.deviceNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SerialNumber {
+            get {
+                return this.serialNumberField;
+            }
+            set {
+                this.serialNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string InstallDate {
+            get {
+                return this.installDateField;
+            }
+            set {
+                this.installDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string LastRegistration {
+            get {
+                return this.lastRegistrationField;
+            }
+            set {
+                this.lastRegistrationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string LastRegisterRead {
+            get {
+                return this.lastRegisterReadField;
+            }
+            set {
+                this.lastRegisterReadField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string LastIntervalDataRead {
+            get {
+                return this.lastIntervalDataReadField;
+            }
+            set {
+                this.lastIntervalDataReadField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Lanid {
+            get {
+                return this.lanidField;
+            }
+            set {
+                this.lanidField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DeviceType {
+            get {
+                return this.deviceTypeField;
+            }
+            set {
+                this.deviceTypeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string TypeDescription {
+            get {
+                return this.typeDescriptionField;
+            }
+            set {
+                this.typeDescriptionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Latitude {
+            get {
+                return this.latitudeField;
+            }
+            set {
+                this.latitudeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Longitude {
+            get {
+                return this.longitudeField;
+            }
+            set {
+                this.longitudeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string PrevGk {
+            get {
+                return this.prevGkField;
+            }
+            set {
+                this.prevGkField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string AccountNumber {
+            get {
+                return this.accountNumberField;
+            }
+            set {
+                this.accountNumberField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
+    public partial class DataSetBean : RecordType {
+        
+        private string dataSetNameField;
+        
+        private string dataSetValueField;
+        
+        /// <remarks/>
+        public string DataSetName {
+            get {
+                return this.dataSetNameField;
+            }
+            set {
+                this.dataSetNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DataSetValue {
+            get {
+                return this.dataSetValueField;
+            }
+            set {
+                this.dataSetValueField = value;
             }
         }
     }
@@ -7664,6 +8646,402 @@ namespace VerificaEstadoAMI.MASSoap {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
+    public partial class JobStatusReportBean : RecordType {
+        
+        private int jobIdField;
+        
+        private string jobNameField;
+        
+        private string jobStatusField;
+        
+        private string jobCreationTimeField;
+        
+        private string jobStartedTimeField;
+        
+        private string jobCompletedTimeField;
+        
+        private string jobExpirationTimeField;
+        
+        private string jobSubmittedField;
+        
+        private System.Nullable<int> workFlowIdField;
+        
+        private int taskIdField;
+        
+        private string taskStatusField;
+        
+        private System.Nullable<int> taskErrorCodeField;
+        
+        private string taskErrorMessageField;
+        
+        private string taskStartAfterField;
+        
+        private string taskStartedTimeField;
+        
+        private string taskCompletedTimeField;
+        
+        private string taskExpirationTimeField;
+        
+        private string meterNameField;
+        
+        private string gKNameField;
+        
+        private string commandNameField;
+        
+        private string componentNameField;
+        
+        private System.Nullable<int> taskPriorityField;
+        
+        private System.Nullable<int> taskMaxRetriesField;
+        
+        private System.Nullable<int> taskRetryIntervalField;
+        
+        private System.Nullable<int> taskRetriesField;
+        
+        private string wANDeviceStartTimeField;
+        
+        private string wANDeviceCompletionTimeField;
+        
+        private string contextIdField;
+        
+        private string notificationInfoField;
+        
+        private System.Nullable<int> notificationTypeField;
+        
+        /// <remarks/>
+        public int JobId {
+            get {
+                return this.jobIdField;
+            }
+            set {
+                this.jobIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string JobName {
+            get {
+                return this.jobNameField;
+            }
+            set {
+                this.jobNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string JobStatus {
+            get {
+                return this.jobStatusField;
+            }
+            set {
+                this.jobStatusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string JobCreationTime {
+            get {
+                return this.jobCreationTimeField;
+            }
+            set {
+                this.jobCreationTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string JobStartedTime {
+            get {
+                return this.jobStartedTimeField;
+            }
+            set {
+                this.jobStartedTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string JobCompletedTime {
+            get {
+                return this.jobCompletedTimeField;
+            }
+            set {
+                this.jobCompletedTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string JobExpirationTime {
+            get {
+                return this.jobExpirationTimeField;
+            }
+            set {
+                this.jobExpirationTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string JobSubmitted {
+            get {
+                return this.jobSubmittedField;
+            }
+            set {
+                this.jobSubmittedField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> WorkFlowId {
+            get {
+                return this.workFlowIdField;
+            }
+            set {
+                this.workFlowIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TaskId {
+            get {
+                return this.taskIdField;
+            }
+            set {
+                this.taskIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string TaskStatus {
+            get {
+                return this.taskStatusField;
+            }
+            set {
+                this.taskStatusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> TaskErrorCode {
+            get {
+                return this.taskErrorCodeField;
+            }
+            set {
+                this.taskErrorCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string TaskErrorMessage {
+            get {
+                return this.taskErrorMessageField;
+            }
+            set {
+                this.taskErrorMessageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string TaskStartAfter {
+            get {
+                return this.taskStartAfterField;
+            }
+            set {
+                this.taskStartAfterField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string TaskStartedTime {
+            get {
+                return this.taskStartedTimeField;
+            }
+            set {
+                this.taskStartedTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string TaskCompletedTime {
+            get {
+                return this.taskCompletedTimeField;
+            }
+            set {
+                this.taskCompletedTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string TaskExpirationTime {
+            get {
+                return this.taskExpirationTimeField;
+            }
+            set {
+                this.taskExpirationTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string MeterName {
+            get {
+                return this.meterNameField;
+            }
+            set {
+                this.meterNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string GKName {
+            get {
+                return this.gKNameField;
+            }
+            set {
+                this.gKNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string CommandName {
+            get {
+                return this.commandNameField;
+            }
+            set {
+                this.commandNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string ComponentName {
+            get {
+                return this.componentNameField;
+            }
+            set {
+                this.componentNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> TaskPriority {
+            get {
+                return this.taskPriorityField;
+            }
+            set {
+                this.taskPriorityField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> TaskMaxRetries {
+            get {
+                return this.taskMaxRetriesField;
+            }
+            set {
+                this.taskMaxRetriesField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> TaskRetryInterval {
+            get {
+                return this.taskRetryIntervalField;
+            }
+            set {
+                this.taskRetryIntervalField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> TaskRetries {
+            get {
+                return this.taskRetriesField;
+            }
+            set {
+                this.taskRetriesField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string WANDeviceStartTime {
+            get {
+                return this.wANDeviceStartTimeField;
+            }
+            set {
+                this.wANDeviceStartTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string WANDeviceCompletionTime {
+            get {
+                return this.wANDeviceCompletionTimeField;
+            }
+            set {
+                this.wANDeviceCompletionTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string ContextId {
+            get {
+                return this.contextIdField;
+            }
+            set {
+                this.contextIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string NotificationInfo {
+            get {
+                return this.notificationInfoField;
+            }
+            set {
+                this.notificationInfoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> NotificationType {
+            get {
+                return this.notificationTypeField;
+            }
+            set {
+                this.notificationTypeField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
     public partial class NameValuePairBean : RecordType {
         
         private string nameField;
@@ -7926,7 +9304,17 @@ namespace VerificaEstadoAMI.MASSoap {
         
         private string lastIntervalReadField;
         
+        private string lastIntervalReadSet2Field;
+        
+        private string lastIntervalReadSet3Field;
+        
+        private string lastSelfReadField;
+        
         private string lastRegisteredField;
+        
+        private string lastPrevPeriodField;
+        
+        private string lastPrevSeasonField;
         
         private string nominalVoltageField;
         
@@ -8163,12 +9551,67 @@ namespace VerificaEstadoAMI.MASSoap {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string LastIntervalReadSet2 {
+            get {
+                return this.lastIntervalReadSet2Field;
+            }
+            set {
+                this.lastIntervalReadSet2Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string LastIntervalReadSet3 {
+            get {
+                return this.lastIntervalReadSet3Field;
+            }
+            set {
+                this.lastIntervalReadSet3Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string LastSelfRead {
+            get {
+                return this.lastSelfReadField;
+            }
+            set {
+                this.lastSelfReadField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public string LastRegistered {
             get {
                 return this.lastRegisteredField;
             }
             set {
                 this.lastRegisteredField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string LastPrevPeriod {
+            get {
+                return this.lastPrevPeriodField;
+            }
+            set {
+                this.lastPrevPeriodField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string LastPrevSeason {
+            get {
+                return this.lastPrevSeasonField;
+            }
+            set {
+                this.lastPrevSeasonField = value;
             }
         }
         
@@ -10301,6 +11744,8 @@ namespace VerificaEstadoAMI.MASSoap {
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(GasConfigProfileRecordType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(WICCheckinConfigProfileRecordType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InstrumentationDataMonitoringProfileRecordType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Rex2DataFormatProfileReportRecordType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(A3NICDataFormatProfileReportRecordType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Rex2Set2IntervalProfileReportRecordType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Rex2Set1IntervalProfileReportRecordType))]
@@ -10308,6 +11753,10 @@ namespace VerificaEstadoAMI.MASSoap {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DemandLimitRex2ConfigProfileRecordType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(GkSchedule2ConfigProfileRecordType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(GkScheduleConfigProfileRecordType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SynergyNetNotificationScheduleProfileRecordType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReadingFilterConfigProfileRecordType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DisplayAdvancedRex2V2ConfigProfileRecordType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DisplayAdvancedRex2ConfigProfileRecordType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DisplayExtendedRex2ConfigProfileRecordType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DisplayRex2ConfigProfileRecordType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DisplayRex1ConfigProfileRecordType))]
@@ -10649,6 +12098,131 @@ namespace VerificaEstadoAMI.MASSoap {
             }
             set {
                 this.lastSecurityMethodField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
+    public partial class InstrumentationDataMonitoringProfileRecordType : ConfigProfileRecordType {
+        
+        private string sTART_UTC_TIMESTAMPField;
+        
+        private string sTOP_UTC_TIMESTAMPField;
+        
+        private int pERIODField;
+        
+        private int rANDOM_FACTORField;
+        
+        private ControlFlagsType cONTROL_FLAGSField;
+        
+        /// <remarks/>
+        public string START_UTC_TIMESTAMP {
+            get {
+                return this.sTART_UTC_TIMESTAMPField;
+            }
+            set {
+                this.sTART_UTC_TIMESTAMPField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string STOP_UTC_TIMESTAMP {
+            get {
+                return this.sTOP_UTC_TIMESTAMPField;
+            }
+            set {
+                this.sTOP_UTC_TIMESTAMPField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PERIOD {
+            get {
+                return this.pERIODField;
+            }
+            set {
+                this.pERIODField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int RANDOM_FACTOR {
+            get {
+                return this.rANDOM_FACTORField;
+            }
+            set {
+                this.rANDOM_FACTORField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public ControlFlagsType CONTROL_FLAGS {
+            get {
+                return this.cONTROL_FLAGSField;
+            }
+            set {
+                this.cONTROL_FLAGSField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
+    public partial class ControlFlagsType {
+        
+        private bool sILENCE_SCHEDULED_PUSHESField;
+        
+        private bool sILENCE_SCHEDULED_PUSHESFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public bool SILENCE_SCHEDULED_PUSHES {
+            get {
+                return this.sILENCE_SCHEDULED_PUSHESField;
+            }
+            set {
+                this.sILENCE_SCHEDULED_PUSHESField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool SILENCE_SCHEDULED_PUSHESSpecified {
+            get {
+                return this.sILENCE_SCHEDULED_PUSHESFieldSpecified;
+            }
+            set {
+                this.sILENCE_SCHEDULED_PUSHESFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
+    public partial class Rex2DataFormatProfileReportRecordType : ConfigProfileRecordType {
+        
+        private int dataFormatField;
+        
+        /// <remarks/>
+        public int dataFormat {
+            get {
+                return this.dataFormatField;
+            }
+            set {
+                this.dataFormatField = value;
             }
         }
     }
@@ -11146,6 +12720,1311 @@ namespace VerificaEstadoAMI.MASSoap {
             }
             set {
                 this.intervalReadRetriesField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
+    public partial class SynergyNetNotificationScheduleProfileRecordType : ConfigProfileRecordType {
+        
+        private SynergyNetNotificationScheduleType statusTypeField;
+        
+        private SynergyNetNotificationScheduleType registerDataField;
+        
+        private SynergyNetNotificationScheduleType lowPriorityEventLogMetrologyField;
+        
+        private SynergyNetNotificationScheduleType lowPriorityEventLogCommsField;
+        
+        private SynergyNetNotificationScheduleType highPriorityEventLogMetrologyField;
+        
+        private SynergyNetNotificationScheduleType highPriorityEventLogCommsField;
+        
+        private SynergyNetNotificationScheduleType pushStatisticsField;
+        
+        private SynergyNetNotificationScheduleType intervalDataSet1Field;
+        
+        private SynergyNetNotificationScheduleType intervalDataSet2Field;
+        
+        private SynergyNetNotificationScheduleType restorationField;
+        
+        private SynergyNetNotificationScheduleType demandResetDataField;
+        
+        private SynergyNetNotificationScheduleType seasonChangeDataField;
+        
+        private SynergyNetNotificationScheduleType selfReadDataField;
+        
+        /// <remarks/>
+        public SynergyNetNotificationScheduleType StatusType {
+            get {
+                return this.statusTypeField;
+            }
+            set {
+                this.statusTypeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public SynergyNetNotificationScheduleType RegisterData {
+            get {
+                return this.registerDataField;
+            }
+            set {
+                this.registerDataField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public SynergyNetNotificationScheduleType LowPriorityEventLogMetrology {
+            get {
+                return this.lowPriorityEventLogMetrologyField;
+            }
+            set {
+                this.lowPriorityEventLogMetrologyField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public SynergyNetNotificationScheduleType LowPriorityEventLogComms {
+            get {
+                return this.lowPriorityEventLogCommsField;
+            }
+            set {
+                this.lowPriorityEventLogCommsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public SynergyNetNotificationScheduleType HighPriorityEventLogMetrology {
+            get {
+                return this.highPriorityEventLogMetrologyField;
+            }
+            set {
+                this.highPriorityEventLogMetrologyField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public SynergyNetNotificationScheduleType HighPriorityEventLogComms {
+            get {
+                return this.highPriorityEventLogCommsField;
+            }
+            set {
+                this.highPriorityEventLogCommsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public SynergyNetNotificationScheduleType PushStatistics {
+            get {
+                return this.pushStatisticsField;
+            }
+            set {
+                this.pushStatisticsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public SynergyNetNotificationScheduleType IntervalDataSet1 {
+            get {
+                return this.intervalDataSet1Field;
+            }
+            set {
+                this.intervalDataSet1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public SynergyNetNotificationScheduleType IntervalDataSet2 {
+            get {
+                return this.intervalDataSet2Field;
+            }
+            set {
+                this.intervalDataSet2Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public SynergyNetNotificationScheduleType Restoration {
+            get {
+                return this.restorationField;
+            }
+            set {
+                this.restorationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public SynergyNetNotificationScheduleType DemandResetData {
+            get {
+                return this.demandResetDataField;
+            }
+            set {
+                this.demandResetDataField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public SynergyNetNotificationScheduleType SeasonChangeData {
+            get {
+                return this.seasonChangeDataField;
+            }
+            set {
+                this.seasonChangeDataField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public SynergyNetNotificationScheduleType SelfReadData {
+            get {
+                return this.selfReadDataField;
+            }
+            set {
+                this.selfReadDataField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
+    public partial class ReadingFilterConfigProfileRecordType : ConfigProfileRecordType {
+        
+        private long[] objectNumberField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("ObjectNumber")]
+        public long[] ObjectNumber {
+            get {
+                return this.objectNumberField;
+            }
+            set {
+                this.objectNumberField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
+    public partial class DisplayAdvancedRex2V2ConfigProfileRecordType : ConfigProfileRecordType {
+        
+        private int holdTimeField;
+        
+        private string customDisplayString1Field;
+        
+        private string customDisplayString2Field;
+        
+        private string customDisplayString3Field;
+        
+        private string customDisplayString4Field;
+        
+        private int custString1OrderField;
+        
+        private int custString2OrderField;
+        
+        private int custString3OrderField;
+        
+        private int custString4OrderField;
+        
+        private int lcdTestOrderField;
+        
+        private int errorOrderField;
+        
+        private int statusOrderField;
+        
+        private int timeAndTierOrderField;
+        
+        private int firstEnergyOrderField;
+        
+        private int tierAOrderField;
+        
+        private int tierBOrderField;
+        
+        private int tierCOrderField;
+        
+        private int tierDOrderField;
+        
+        private int tierASecondEnergyOrderField;
+        
+        private int tierBSecondEnergyOrderField;
+        
+        private int tierCSecondEnergyOrderField;
+        
+        private int tierDSecondEnergyOrderField;
+        
+        private int secondEnergyOrderField;
+        
+        private int netRegStatusOrderField;
+        
+        private int loadControlOrderField;
+        
+        private int firmwareVersionOrderField;
+        
+        private int phaseVoltageOrderField;
+        
+        private int phaseInstDemandOrderField;
+        
+        private int thirdEnergyOrderField;
+        
+        private int fourthEnergyOrderField;
+        
+        private int fifthEnergyOrderField;
+        
+        private int sixthEnergyOrderField;
+        
+        private int powerFactorOrderField;
+        
+        private int phaseACurrentOrderField;
+        
+        private int phaseCCurrentOrderField;
+        
+        private int totalFirstDemandOrderField;
+        
+        private int tierAFirstDemandOrderField;
+        
+        private int tierBFirstDemandOrderField;
+        
+        private int tierCFirstDemandOrderField;
+        
+        private int tierDFirstDemandOrderField;
+        
+        private int totalSecondDemandOrderField;
+        
+        private int tierASecondDemandOrderField;
+        
+        private int tierBSecondDemandOrderField;
+        
+        private int tierCSecondDemandOrderField;
+        
+        private int tierDSecondDemandOrderField;
+        
+        private int currentDateOrderField;
+        
+        /// <remarks/>
+        public int HoldTime {
+            get {
+                return this.holdTimeField;
+            }
+            set {
+                this.holdTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string CustomDisplayString1 {
+            get {
+                return this.customDisplayString1Field;
+            }
+            set {
+                this.customDisplayString1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string CustomDisplayString2 {
+            get {
+                return this.customDisplayString2Field;
+            }
+            set {
+                this.customDisplayString2Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string CustomDisplayString3 {
+            get {
+                return this.customDisplayString3Field;
+            }
+            set {
+                this.customDisplayString3Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string CustomDisplayString4 {
+            get {
+                return this.customDisplayString4Field;
+            }
+            set {
+                this.customDisplayString4Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CustString1Order {
+            get {
+                return this.custString1OrderField;
+            }
+            set {
+                this.custString1OrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CustString2Order {
+            get {
+                return this.custString2OrderField;
+            }
+            set {
+                this.custString2OrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CustString3Order {
+            get {
+                return this.custString3OrderField;
+            }
+            set {
+                this.custString3OrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CustString4Order {
+            get {
+                return this.custString4OrderField;
+            }
+            set {
+                this.custString4OrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int LcdTestOrder {
+            get {
+                return this.lcdTestOrderField;
+            }
+            set {
+                this.lcdTestOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ErrorOrder {
+            get {
+                return this.errorOrderField;
+            }
+            set {
+                this.errorOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int StatusOrder {
+            get {
+                return this.statusOrderField;
+            }
+            set {
+                this.statusOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TimeAndTierOrder {
+            get {
+                return this.timeAndTierOrderField;
+            }
+            set {
+                this.timeAndTierOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int FirstEnergyOrder {
+            get {
+                return this.firstEnergyOrderField;
+            }
+            set {
+                this.firstEnergyOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierAOrder {
+            get {
+                return this.tierAOrderField;
+            }
+            set {
+                this.tierAOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierBOrder {
+            get {
+                return this.tierBOrderField;
+            }
+            set {
+                this.tierBOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierCOrder {
+            get {
+                return this.tierCOrderField;
+            }
+            set {
+                this.tierCOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierDOrder {
+            get {
+                return this.tierDOrderField;
+            }
+            set {
+                this.tierDOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierASecondEnergyOrder {
+            get {
+                return this.tierASecondEnergyOrderField;
+            }
+            set {
+                this.tierASecondEnergyOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierBSecondEnergyOrder {
+            get {
+                return this.tierBSecondEnergyOrderField;
+            }
+            set {
+                this.tierBSecondEnergyOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierCSecondEnergyOrder {
+            get {
+                return this.tierCSecondEnergyOrderField;
+            }
+            set {
+                this.tierCSecondEnergyOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierDSecondEnergyOrder {
+            get {
+                return this.tierDSecondEnergyOrderField;
+            }
+            set {
+                this.tierDSecondEnergyOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int SecondEnergyOrder {
+            get {
+                return this.secondEnergyOrderField;
+            }
+            set {
+                this.secondEnergyOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int NetRegStatusOrder {
+            get {
+                return this.netRegStatusOrderField;
+            }
+            set {
+                this.netRegStatusOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int LoadControlOrder {
+            get {
+                return this.loadControlOrderField;
+            }
+            set {
+                this.loadControlOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int FirmwareVersionOrder {
+            get {
+                return this.firmwareVersionOrderField;
+            }
+            set {
+                this.firmwareVersionOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PhaseVoltageOrder {
+            get {
+                return this.phaseVoltageOrderField;
+            }
+            set {
+                this.phaseVoltageOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PhaseInstDemandOrder {
+            get {
+                return this.phaseInstDemandOrderField;
+            }
+            set {
+                this.phaseInstDemandOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ThirdEnergyOrder {
+            get {
+                return this.thirdEnergyOrderField;
+            }
+            set {
+                this.thirdEnergyOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int FourthEnergyOrder {
+            get {
+                return this.fourthEnergyOrderField;
+            }
+            set {
+                this.fourthEnergyOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int FifthEnergyOrder {
+            get {
+                return this.fifthEnergyOrderField;
+            }
+            set {
+                this.fifthEnergyOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int SixthEnergyOrder {
+            get {
+                return this.sixthEnergyOrderField;
+            }
+            set {
+                this.sixthEnergyOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PowerFactorOrder {
+            get {
+                return this.powerFactorOrderField;
+            }
+            set {
+                this.powerFactorOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PhaseACurrentOrder {
+            get {
+                return this.phaseACurrentOrderField;
+            }
+            set {
+                this.phaseACurrentOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PhaseCCurrentOrder {
+            get {
+                return this.phaseCCurrentOrderField;
+            }
+            set {
+                this.phaseCCurrentOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TotalFirstDemandOrder {
+            get {
+                return this.totalFirstDemandOrderField;
+            }
+            set {
+                this.totalFirstDemandOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierAFirstDemandOrder {
+            get {
+                return this.tierAFirstDemandOrderField;
+            }
+            set {
+                this.tierAFirstDemandOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierBFirstDemandOrder {
+            get {
+                return this.tierBFirstDemandOrderField;
+            }
+            set {
+                this.tierBFirstDemandOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierCFirstDemandOrder {
+            get {
+                return this.tierCFirstDemandOrderField;
+            }
+            set {
+                this.tierCFirstDemandOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierDFirstDemandOrder {
+            get {
+                return this.tierDFirstDemandOrderField;
+            }
+            set {
+                this.tierDFirstDemandOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TotalSecondDemandOrder {
+            get {
+                return this.totalSecondDemandOrderField;
+            }
+            set {
+                this.totalSecondDemandOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierASecondDemandOrder {
+            get {
+                return this.tierASecondDemandOrderField;
+            }
+            set {
+                this.tierASecondDemandOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierBSecondDemandOrder {
+            get {
+                return this.tierBSecondDemandOrderField;
+            }
+            set {
+                this.tierBSecondDemandOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierCSecondDemandOrder {
+            get {
+                return this.tierCSecondDemandOrderField;
+            }
+            set {
+                this.tierCSecondDemandOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierDSecondDemandOrder {
+            get {
+                return this.tierDSecondDemandOrderField;
+            }
+            set {
+                this.tierDSecondDemandOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CurrentDateOrder {
+            get {
+                return this.currentDateOrderField;
+            }
+            set {
+                this.currentDateOrderField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
+    public partial class DisplayAdvancedRex2ConfigProfileRecordType : ConfigProfileRecordType {
+        
+        private int holdTimeField;
+        
+        private string customDisplayString1Field;
+        
+        private string customDisplayString2Field;
+        
+        private string customDisplayString3Field;
+        
+        private string customDisplayString4Field;
+        
+        private int custString1OrderField;
+        
+        private int custString2OrderField;
+        
+        private int custString3OrderField;
+        
+        private int custString4OrderField;
+        
+        private int lcdTestOrderField;
+        
+        private int errorOrderField;
+        
+        private int statusOrderField;
+        
+        private int timeAndTierOrderField;
+        
+        private int firstEnergyOrderField;
+        
+        private int tierAOrderField;
+        
+        private int tierBOrderField;
+        
+        private int tierCOrderField;
+        
+        private int tierDOrderField;
+        
+        private int tierASecondEnergyOrderField;
+        
+        private int tierBSecondEnergyOrderField;
+        
+        private int tierCSecondEnergyOrderField;
+        
+        private int tierDSecondEnergyOrderField;
+        
+        private int secondEnergyOrderField;
+        
+        private int netRegStatusOrderField;
+        
+        private int loadControlOrderField;
+        
+        private int firmwareVersionOrderField;
+        
+        private int phaseVoltageOrderField;
+        
+        private int phaseInstDemandOrderField;
+        
+        private int thirdEnergyOrderField;
+        
+        private int fourthEnergyOrderField;
+        
+        private int fifthEnergyOrderField;
+        
+        private int sixthEnergyOrderField;
+        
+        private int powerFactorOrderField;
+        
+        private int phaseACurrentOrderField;
+        
+        private int phaseCCurrentOrderField;
+        
+        private int totalFirstDemandOrderField;
+        
+        private int tierAFirstDemandOrderField;
+        
+        private int tierBFirstDemandOrderField;
+        
+        private int tierCFirstDemandOrderField;
+        
+        private int tierDFirstDemandOrderField;
+        
+        private int totalSecondDemandOrderField;
+        
+        private int tierASecondDemandOrderField;
+        
+        private int tierBSecondDemandOrderField;
+        
+        private int tierCSecondDemandOrderField;
+        
+        private int tierDSecondDemandOrderField;
+        
+        /// <remarks/>
+        public int HoldTime {
+            get {
+                return this.holdTimeField;
+            }
+            set {
+                this.holdTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string CustomDisplayString1 {
+            get {
+                return this.customDisplayString1Field;
+            }
+            set {
+                this.customDisplayString1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string CustomDisplayString2 {
+            get {
+                return this.customDisplayString2Field;
+            }
+            set {
+                this.customDisplayString2Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string CustomDisplayString3 {
+            get {
+                return this.customDisplayString3Field;
+            }
+            set {
+                this.customDisplayString3Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string CustomDisplayString4 {
+            get {
+                return this.customDisplayString4Field;
+            }
+            set {
+                this.customDisplayString4Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CustString1Order {
+            get {
+                return this.custString1OrderField;
+            }
+            set {
+                this.custString1OrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CustString2Order {
+            get {
+                return this.custString2OrderField;
+            }
+            set {
+                this.custString2OrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CustString3Order {
+            get {
+                return this.custString3OrderField;
+            }
+            set {
+                this.custString3OrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CustString4Order {
+            get {
+                return this.custString4OrderField;
+            }
+            set {
+                this.custString4OrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int LcdTestOrder {
+            get {
+                return this.lcdTestOrderField;
+            }
+            set {
+                this.lcdTestOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ErrorOrder {
+            get {
+                return this.errorOrderField;
+            }
+            set {
+                this.errorOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int StatusOrder {
+            get {
+                return this.statusOrderField;
+            }
+            set {
+                this.statusOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TimeAndTierOrder {
+            get {
+                return this.timeAndTierOrderField;
+            }
+            set {
+                this.timeAndTierOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int FirstEnergyOrder {
+            get {
+                return this.firstEnergyOrderField;
+            }
+            set {
+                this.firstEnergyOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierAOrder {
+            get {
+                return this.tierAOrderField;
+            }
+            set {
+                this.tierAOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierBOrder {
+            get {
+                return this.tierBOrderField;
+            }
+            set {
+                this.tierBOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierCOrder {
+            get {
+                return this.tierCOrderField;
+            }
+            set {
+                this.tierCOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierDOrder {
+            get {
+                return this.tierDOrderField;
+            }
+            set {
+                this.tierDOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierASecondEnergyOrder {
+            get {
+                return this.tierASecondEnergyOrderField;
+            }
+            set {
+                this.tierASecondEnergyOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierBSecondEnergyOrder {
+            get {
+                return this.tierBSecondEnergyOrderField;
+            }
+            set {
+                this.tierBSecondEnergyOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierCSecondEnergyOrder {
+            get {
+                return this.tierCSecondEnergyOrderField;
+            }
+            set {
+                this.tierCSecondEnergyOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierDSecondEnergyOrder {
+            get {
+                return this.tierDSecondEnergyOrderField;
+            }
+            set {
+                this.tierDSecondEnergyOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int SecondEnergyOrder {
+            get {
+                return this.secondEnergyOrderField;
+            }
+            set {
+                this.secondEnergyOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int NetRegStatusOrder {
+            get {
+                return this.netRegStatusOrderField;
+            }
+            set {
+                this.netRegStatusOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int LoadControlOrder {
+            get {
+                return this.loadControlOrderField;
+            }
+            set {
+                this.loadControlOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int FirmwareVersionOrder {
+            get {
+                return this.firmwareVersionOrderField;
+            }
+            set {
+                this.firmwareVersionOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PhaseVoltageOrder {
+            get {
+                return this.phaseVoltageOrderField;
+            }
+            set {
+                this.phaseVoltageOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PhaseInstDemandOrder {
+            get {
+                return this.phaseInstDemandOrderField;
+            }
+            set {
+                this.phaseInstDemandOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ThirdEnergyOrder {
+            get {
+                return this.thirdEnergyOrderField;
+            }
+            set {
+                this.thirdEnergyOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int FourthEnergyOrder {
+            get {
+                return this.fourthEnergyOrderField;
+            }
+            set {
+                this.fourthEnergyOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int FifthEnergyOrder {
+            get {
+                return this.fifthEnergyOrderField;
+            }
+            set {
+                this.fifthEnergyOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int SixthEnergyOrder {
+            get {
+                return this.sixthEnergyOrderField;
+            }
+            set {
+                this.sixthEnergyOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PowerFactorOrder {
+            get {
+                return this.powerFactorOrderField;
+            }
+            set {
+                this.powerFactorOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PhaseACurrentOrder {
+            get {
+                return this.phaseACurrentOrderField;
+            }
+            set {
+                this.phaseACurrentOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PhaseCCurrentOrder {
+            get {
+                return this.phaseCCurrentOrderField;
+            }
+            set {
+                this.phaseCCurrentOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TotalFirstDemandOrder {
+            get {
+                return this.totalFirstDemandOrderField;
+            }
+            set {
+                this.totalFirstDemandOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierAFirstDemandOrder {
+            get {
+                return this.tierAFirstDemandOrderField;
+            }
+            set {
+                this.tierAFirstDemandOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierBFirstDemandOrder {
+            get {
+                return this.tierBFirstDemandOrderField;
+            }
+            set {
+                this.tierBFirstDemandOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierCFirstDemandOrder {
+            get {
+                return this.tierCFirstDemandOrderField;
+            }
+            set {
+                this.tierCFirstDemandOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierDFirstDemandOrder {
+            get {
+                return this.tierDFirstDemandOrderField;
+            }
+            set {
+                this.tierDFirstDemandOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TotalSecondDemandOrder {
+            get {
+                return this.totalSecondDemandOrderField;
+            }
+            set {
+                this.totalSecondDemandOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierASecondDemandOrder {
+            get {
+                return this.tierASecondDemandOrderField;
+            }
+            set {
+                this.tierASecondDemandOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierBSecondDemandOrder {
+            get {
+                return this.tierBSecondDemandOrderField;
+            }
+            set {
+                this.tierBSecondDemandOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierCSecondDemandOrder {
+            get {
+                return this.tierCSecondDemandOrderField;
+            }
+            set {
+                this.tierCSecondDemandOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TierDSecondDemandOrder {
+            get {
+                return this.tierDSecondDemandOrderField;
+            }
+            set {
+                this.tierDSecondDemandOrderField = value;
             }
         }
     }
@@ -23188,11 +26067,12 @@ namespace VerificaEstadoAMI.MASSoap {
         REXUEA,
         
         /// <remarks/>
-        LightNode,
-        
-        /// <remarks/>
         [System.Xml.Serialization.XmlEnumAttribute("REXU-SynergyNet")]
         REXUSynergyNet,
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("A3-SynergyNet")]
+        A3SynergyNet,
     }
     
     /// <remarks/>
@@ -23244,6 +26124,11 @@ namespace VerificaEstadoAMI.MASSoap {
         [System.Xml.Serialization.XmlElementAttribute("HANMessage", typeof(HANMessageType))]
         [System.Xml.Serialization.XmlElementAttribute("Job", typeof(JobType))]
         [System.Xml.Serialization.XmlElementAttribute("LANSeed", typeof(LANSeedType))]
+        [System.Xml.Serialization.XmlElementAttribute("LightNodeAdd", typeof(LightNodeAddType))]
+        [System.Xml.Serialization.XmlElementAttribute("LightNodeAddDeviceToGroup", typeof(LightNodeAddDeviceToGroupType))]
+        [System.Xml.Serialization.XmlElementAttribute("LightNodeDelete", typeof(LightNodeDeleteType))]
+        [System.Xml.Serialization.XmlElementAttribute("LightNodeModify", typeof(LightNodeModifyType))]
+        [System.Xml.Serialization.XmlElementAttribute("LightNodeRemoveDeviceFromGroup", typeof(LightNodeRemoveDeviceFromGroupType))]
         [System.Xml.Serialization.XmlElementAttribute("MarriageFile", typeof(MarriageFileType))]
         [System.Xml.Serialization.XmlElementAttribute("MarriageFileSnippet", typeof(string))]
         [System.Xml.Serialization.XmlElementAttribute("Meter", typeof(ImportMeterType))]
@@ -23273,8 +26158,6 @@ namespace VerificaEstadoAMI.MASSoap {
         [System.Xml.Serialization.XmlElementAttribute("WANAccessControlList", typeof(WANAccessControlListType))]
         [System.Xml.Serialization.XmlElementAttribute("WANSeed", typeof(WANSeedType))]
         [System.Xml.Serialization.XmlElementAttribute("WICActivationFile", typeof(WICActivationFileType))]
-        [System.Xml.Serialization.XmlElementAttribute("WaitForAsyncWebServiceCall", typeof(WaitForAsyncWebServiceCallType))]
-        [System.Xml.Serialization.XmlElementAttribute("WebServiceCall", typeof(WebServiceCallType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
         public object[] Items {
             get {
@@ -25114,8 +27997,10 @@ namespace VerificaEstadoAMI.MASSoap {
         [System.Xml.Serialization.XmlElementAttribute("GKSchedule2Config", typeof(GKSchedule2ConfigType))]
         [System.Xml.Serialization.XmlElementAttribute("GKScheduleConfig", typeof(GKScheduleConfigType))]
         [System.Xml.Serialization.XmlElementAttribute("GasConfig", typeof(GasConfigType))]
+        [System.Xml.Serialization.XmlElementAttribute("InstrumentationDataMonitoringProfile", typeof(InstrumentationDataMonitoringProfileType))]
         [System.Xml.Serialization.XmlElementAttribute("MomentaryOutageTimeConfig", typeof(MomentaryOutageTimeConfigType))]
         [System.Xml.Serialization.XmlElementAttribute("Rex1DisplayConfig", typeof(Rex1DisplayConfigType))]
+        [System.Xml.Serialization.XmlElementAttribute("Rex2DataFormatConfig", typeof(Rex2DataFormatConfigType))]
         [System.Xml.Serialization.XmlElementAttribute("Rex2DisplayConfig", typeof(Rex2DisplayConfigType))]
         [System.Xml.Serialization.XmlElementAttribute("Rex2Set1IntervalConfig", typeof(Rex2Set1IntervalConfigType))]
         [System.Xml.Serialization.XmlElementAttribute("Rex2Set2IntervalConfig", typeof(Rex2Set2IntervalConfigType))]
@@ -26078,6 +28963,122 @@ namespace VerificaEstadoAMI.MASSoap {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
+    public partial class InstrumentationDataMonitoringProfileType {
+        
+        private ControlFlagsType cONTROL_FLAGSField;
+        
+        private string sTART_UTC_TIMESTAMPField;
+        
+        private string sTOP_UTC_TIMESTAMPField;
+        
+        private int pERIODField;
+        
+        private int rANDOM_FACTORField;
+        
+        private bool rANDOM_FACTORFieldSpecified;
+        
+        private int pROFILE_TYPEField;
+        
+        private bool pROFILE_TYPEFieldSpecified;
+        
+        public InstrumentationDataMonitoringProfileType() {
+            this.pROFILE_TYPEField = 32;
+        }
+        
+        /// <remarks/>
+        public ControlFlagsType CONTROL_FLAGS {
+            get {
+                return this.cONTROL_FLAGSField;
+            }
+            set {
+                this.cONTROL_FLAGSField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string START_UTC_TIMESTAMP {
+            get {
+                return this.sTART_UTC_TIMESTAMPField;
+            }
+            set {
+                this.sTART_UTC_TIMESTAMPField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string STOP_UTC_TIMESTAMP {
+            get {
+                return this.sTOP_UTC_TIMESTAMPField;
+            }
+            set {
+                this.sTOP_UTC_TIMESTAMPField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public int PERIOD {
+            get {
+                return this.pERIODField;
+            }
+            set {
+                this.pERIODField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public int RANDOM_FACTOR {
+            get {
+                return this.rANDOM_FACTORField;
+            }
+            set {
+                this.rANDOM_FACTORField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool RANDOM_FACTORSpecified {
+            get {
+                return this.rANDOM_FACTORFieldSpecified;
+            }
+            set {
+                this.rANDOM_FACTORFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public int PROFILE_TYPE {
+            get {
+                return this.pROFILE_TYPEField;
+            }
+            set {
+                this.pROFILE_TYPEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PROFILE_TYPESpecified {
+            get {
+                return this.pROFILE_TYPEFieldSpecified;
+            }
+            set {
+                this.pROFILE_TYPEFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
     public partial class MomentaryOutageTimeConfigType {
         
         private float mAX_MOMENTARY_OUTAGE_TIMEField;
@@ -26520,6 +29521,58 @@ namespace VerificaEstadoAMI.MASSoap {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
+    public partial class Rex2DataFormatConfigType {
+        
+        private ElsterBoolean dATA_FORMATField;
+        
+        private int pROFILE_TYPEField;
+        
+        private bool pROFILE_TYPEFieldSpecified;
+        
+        public Rex2DataFormatConfigType() {
+            this.pROFILE_TYPEField = 33;
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public ElsterBoolean DATA_FORMAT {
+            get {
+                return this.dATA_FORMATField;
+            }
+            set {
+                this.dATA_FORMATField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public int PROFILE_TYPE {
+            get {
+                return this.pROFILE_TYPEField;
+            }
+            set {
+                this.pROFILE_TYPEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PROFILE_TYPESpecified {
+            get {
+                return this.pROFILE_TYPEFieldSpecified;
+            }
+            set {
+                this.pROFILE_TYPEFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
     public partial class Rex2DisplayConfigType {
         
         private ElsterBoolean dISPLAY_LCD_TESTField;
@@ -26642,6 +29695,10 @@ namespace VerificaEstadoAMI.MASSoap {
         
         private string dISPLAY_ORDER_TOTAL_SECOND_ENERGYField;
         
+        private string dISPLAY_ORDER_TOTAL_THIRD_ENERGYField;
+        
+        private string dISPLAY_ORDER_TOTAL_FOURTH_ENERGYField;
+        
         private string dISPLAY_ORDER_TIER_A_ENERGYField;
         
         private string dISPLAY_ORDER_TIER_B_ENERGYField;
@@ -26680,8 +29737,13 @@ namespace VerificaEstadoAMI.MASSoap {
         
         private bool pROFILE_TYPEFieldSpecified;
         
+        private int dISPLAY_HOLD_TIMEField;
+        
+        private bool dISPLAY_HOLD_TIMEFieldSpecified;
+        
         public Rex2DisplayConfigType() {
             this.pROFILE_TYPEField = 13;
+            this.dISPLAY_HOLD_TIMEField = 0;
         }
         
         /// <remarks/>
@@ -27346,6 +30408,28 @@ namespace VerificaEstadoAMI.MASSoap {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute(DataType="nonNegativeInteger")]
+        public string DISPLAY_ORDER_TOTAL_THIRD_ENERGY {
+            get {
+                return this.dISPLAY_ORDER_TOTAL_THIRD_ENERGYField;
+            }
+            set {
+                this.dISPLAY_ORDER_TOTAL_THIRD_ENERGYField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="nonNegativeInteger")]
+        public string DISPLAY_ORDER_TOTAL_FOURTH_ENERGY {
+            get {
+                return this.dISPLAY_ORDER_TOTAL_FOURTH_ENERGYField;
+            }
+            set {
+                this.dISPLAY_ORDER_TOTAL_FOURTH_ENERGYField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="nonNegativeInteger")]
         public string DISPLAY_ORDER_TIER_A_ENERGY {
             get {
                 return this.dISPLAY_ORDER_TIER_A_ENERGYField;
@@ -27550,6 +30634,28 @@ namespace VerificaEstadoAMI.MASSoap {
             }
             set {
                 this.pROFILE_TYPEFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public int DISPLAY_HOLD_TIME {
+            get {
+                return this.dISPLAY_HOLD_TIMEField;
+            }
+            set {
+                this.dISPLAY_HOLD_TIMEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DISPLAY_HOLD_TIMESpecified {
+            get {
+                return this.dISPLAY_HOLD_TIMEFieldSpecified;
+            }
+            set {
+                this.dISPLAY_HOLD_TIMEFieldSpecified = value;
             }
         }
     }
@@ -29408,8 +32514,6 @@ namespace VerificaEstadoAMI.MASSoap {
         
         private ElsterBoolean isCriticalPeakTierField;
         
-        private bool isCriticalPeakTierFieldSpecified;
-        
         private CTOTier tierField;
         
         /// <remarks/>
@@ -29552,17 +32656,6 @@ namespace VerificaEstadoAMI.MASSoap {
             }
             set {
                 this.isCriticalPeakTierField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool IsCriticalPeakTierSpecified {
-            get {
-                return this.isCriticalPeakTierFieldSpecified;
-            }
-            set {
-                this.isCriticalPeakTierFieldSpecified = value;
             }
         }
         
@@ -30118,6 +33211,346 @@ namespace VerificaEstadoAMI.MASSoap {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
+    public partial class LightNodeAddType {
+        
+        private GroupIdType[] groupIdField;
+        
+        private string nameField;
+        
+        private string serialNoField;
+        
+        private int lANIDField;
+        
+        private decimal latitudeField;
+        
+        private bool latitudeFieldSpecified;
+        
+        private decimal longitudeField;
+        
+        private bool longitudeFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("GroupId")]
+        public GroupIdType[] GroupId {
+            get {
+                return this.groupIdField;
+            }
+            set {
+                this.groupIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string SerialNo {
+            get {
+                return this.serialNoField;
+            }
+            set {
+                this.serialNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public int LANID {
+            get {
+                return this.lANIDField;
+            }
+            set {
+                this.lANIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public decimal Latitude {
+            get {
+                return this.latitudeField;
+            }
+            set {
+                this.latitudeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool LatitudeSpecified {
+            get {
+                return this.latitudeFieldSpecified;
+            }
+            set {
+                this.latitudeFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public decimal Longitude {
+            get {
+                return this.longitudeField;
+            }
+            set {
+                this.longitudeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool LongitudeSpecified {
+            get {
+                return this.longitudeFieldSpecified;
+            }
+            set {
+                this.longitudeFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
+    public partial class GroupIdType {
+        
+        private string groupIdNumberField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="nonNegativeInteger")]
+        public string GroupIdNumber {
+            get {
+                return this.groupIdNumberField;
+            }
+            set {
+                this.groupIdNumberField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
+    public partial class LightNodeAddDeviceToGroupType {
+        
+        private GroupIdType[] groupIdField;
+        
+        private string deviceNameField;
+        
+        private string correlationIdField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("GroupId")]
+        public GroupIdType[] GroupId {
+            get {
+                return this.groupIdField;
+            }
+            set {
+                this.groupIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string DeviceName {
+            get {
+                return this.deviceNameField;
+            }
+            set {
+                this.deviceNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string CorrelationId {
+            get {
+                return this.correlationIdField;
+            }
+            set {
+                this.correlationIdField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
+    public partial class LightNodeDeleteType {
+        
+        private string deviceNameField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string DeviceName {
+            get {
+                return this.deviceNameField;
+            }
+            set {
+                this.deviceNameField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
+    public partial class LightNodeModifyType {
+        
+        private string existingNameField;
+        
+        private string newNameField;
+        
+        private decimal latitudeField;
+        
+        private bool latitudeFieldSpecified;
+        
+        private decimal longitudeField;
+        
+        private bool longitudeFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string ExistingName {
+            get {
+                return this.existingNameField;
+            }
+            set {
+                this.existingNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string NewName {
+            get {
+                return this.newNameField;
+            }
+            set {
+                this.newNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public decimal Latitude {
+            get {
+                return this.latitudeField;
+            }
+            set {
+                this.latitudeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool LatitudeSpecified {
+            get {
+                return this.latitudeFieldSpecified;
+            }
+            set {
+                this.latitudeFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public decimal Longitude {
+            get {
+                return this.longitudeField;
+            }
+            set {
+                this.longitudeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool LongitudeSpecified {
+            get {
+                return this.longitudeFieldSpecified;
+            }
+            set {
+                this.longitudeFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
+    public partial class LightNodeRemoveDeviceFromGroupType {
+        
+        private GroupIdType[] groupIdField;
+        
+        private string deviceNameField;
+        
+        private string correlationIdField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("GroupId")]
+        public GroupIdType[] GroupId {
+            get {
+                return this.groupIdField;
+            }
+            set {
+                this.groupIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string DeviceName {
+            get {
+                return this.deviceNameField;
+            }
+            set {
+                this.deviceNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string CorrelationId {
+            get {
+                return this.correlationIdField;
+            }
+            set {
+                this.correlationIdField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
     public partial class MarriageFileType {
         
         private MFCheckType mFCheckField;
@@ -30139,7 +33572,7 @@ namespace VerificaEstadoAMI.MASSoap {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="anyURI")]
         public string FilePath {
             get {
                 return this.filePathField;
@@ -30266,37 +33699,19 @@ namespace VerificaEstadoAMI.MASSoap {
         
         private string siteLocationField;
         
-        private string touScheduleField;
-        
         private string tOUScheduleField;
         
         private string billingPasswordField;
         
         private string unrestrictedPasswordField;
         
-        private ElsterTimeZones timeZoneField;
-        
-        private bool timeZoneFieldSpecified;
-        
         private ElsterTimeZones timezoneField;
         
         private bool timezoneFieldSpecified;
         
-        private int timeZoneIdField;
-        
-        private bool timeZoneIdFieldSpecified;
-        
         private int timezoneIdField;
         
         private bool timezoneIdFieldSpecified;
-        
-        private int timeZoneIDField;
-        
-        private bool timeZoneIDFieldSpecified;
-        
-        private int timezoneIDField;
-        
-        private bool timezoneIDFieldSpecified;
         
         private ElsterBoolean observesDSTField;
         
@@ -30316,11 +33731,11 @@ namespace VerificaEstadoAMI.MASSoap {
         
         private string deviceNumberField;
         
-        private float latitudeField;
+        private decimal latitudeField;
         
         private bool latitudeFieldSpecified;
         
-        private float longitudeField;
+        private decimal longitudeField;
         
         private bool longitudeFieldSpecified;
         
@@ -30360,71 +33775,71 @@ namespace VerificaEstadoAMI.MASSoap {
         
         private bool dTLSReconnectPortFieldSpecified;
         
-        private string billingCycleIDField;
+        private string billing_Cycle_IDField;
         
-        private string areaIDField;
+        private string area_IDField;
         
-        private string substationIDField;
+        private string substation_IDField;
         
-        private string feederIDField;
+        private string feeder_IDField;
         
-        private string transformerIDField;
+        private string transformer_IDField;
         
         private string manufacturerField;
         
-        private string routeIDField;
+        private string route_IDField;
         
-        private SupplyPhase supplyPhaseField;
+        private SupplyPhase supply_PhaseField;
         
-        private bool supplyPhaseFieldSpecified;
+        private bool supply_PhaseFieldSpecified;
         
-        private string transformerTankIDField;
+        private string transformer_Tank_IDField;
         
-        private string nominalVoltageField;
+        private string nominal_VoltageField;
         
-        private string outageRegionIDField;
+        private string outage_Region_IDField;
         
-        private string streetAddressField;
+        private string street_AddressField;
         
-        private string buildingNameField;
+        private string building_NameField;
         
-        private string streetCodeField;
+        private string street_CodeField;
         
-        private string streetNumberField;
+        private string street_NumberField;
         
-        private string streetPrefixField;
+        private string street_PrefixField;
         
-        private string streetSuffixField;
+        private string street_SuffixField;
         
         private string suiteField;
         
-        private string streetTypeField;
+        private string street_TypeField;
         
-        private ElsterBoolean withinTownLimitsField;
+        private ElsterBoolean within_Town_LimitsField;
         
-        private bool withinTownLimitsFieldSpecified;
+        private bool within_Town_LimitsFieldSpecified;
         
-        private string townCodeField;
+        private string town_CodeField;
         
-        private string townCountryField;
+        private string town_CountryField;
         
-        private string townNameField;
+        private string town_NameField;
         
-        private string townSectionField;
+        private string town_SectionField;
         
-        private string townStateOrProvinceField;
+        private string town_State_Or_ProvinceField;
         
-        private string pOBoxField;
+        private string p_O_BoxField;
         
-        private string postalCodeField;
+        private string postal_CodeField;
         
         private Application applicationField;
         
         private bool applicationFieldSpecified;
         
-        private ElsterBoolean revenueDeviceField;
+        private ElsterBoolean revenueField;
         
-        private bool revenueDeviceFieldSpecified;
+        private bool revenueFieldSpecified;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -30571,17 +33986,6 @@ namespace VerificaEstadoAMI.MASSoap {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string TouSchedule {
-            get {
-                return this.touScheduleField;
-            }
-            set {
-                this.touScheduleField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
         public string TOUSchedule {
             get {
                 return this.tOUScheduleField;
@@ -30615,28 +34019,6 @@ namespace VerificaEstadoAMI.MASSoap {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ElsterTimeZones TimeZone {
-            get {
-                return this.timeZoneField;
-            }
-            set {
-                this.timeZoneField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool TimeZoneSpecified {
-            get {
-                return this.timeZoneFieldSpecified;
-            }
-            set {
-                this.timeZoneFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
         public ElsterTimeZones Timezone {
             get {
                 return this.timezoneField;
@@ -30659,28 +34041,6 @@ namespace VerificaEstadoAMI.MASSoap {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public int TimeZoneId {
-            get {
-                return this.timeZoneIdField;
-            }
-            set {
-                this.timeZoneIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool TimeZoneIdSpecified {
-            get {
-                return this.timeZoneIdFieldSpecified;
-            }
-            set {
-                this.timeZoneIdFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
         public int TimezoneId {
             get {
                 return this.timezoneIdField;
@@ -30698,50 +34058,6 @@ namespace VerificaEstadoAMI.MASSoap {
             }
             set {
                 this.timezoneIdFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public int TimeZoneID {
-            get {
-                return this.timeZoneIDField;
-            }
-            set {
-                this.timeZoneIDField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool TimeZoneIDSpecified {
-            get {
-                return this.timeZoneIDFieldSpecified;
-            }
-            set {
-                this.timeZoneIDFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public int TimezoneID {
-            get {
-                return this.timezoneIDField;
-            }
-            set {
-                this.timezoneIDField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool TimezoneIDSpecified {
-            get {
-                return this.timezoneIDFieldSpecified;
-            }
-            set {
-                this.timezoneIDFieldSpecified = value;
             }
         }
         
@@ -30846,7 +34162,7 @@ namespace VerificaEstadoAMI.MASSoap {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public float Latitude {
+        public decimal Latitude {
             get {
                 return this.latitudeField;
             }
@@ -30868,7 +34184,7 @@ namespace VerificaEstadoAMI.MASSoap {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public float Longitude {
+        public decimal Longitude {
             get {
                 return this.longitudeField;
             }
@@ -31088,56 +34404,56 @@ namespace VerificaEstadoAMI.MASSoap {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string BillingCycleID {
+        public string Billing_Cycle_ID {
             get {
-                return this.billingCycleIDField;
+                return this.billing_Cycle_IDField;
             }
             set {
-                this.billingCycleIDField = value;
+                this.billing_Cycle_IDField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string AreaID {
+        public string Area_ID {
             get {
-                return this.areaIDField;
+                return this.area_IDField;
             }
             set {
-                this.areaIDField = value;
+                this.area_IDField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string SubstationID {
+        public string Substation_ID {
             get {
-                return this.substationIDField;
+                return this.substation_IDField;
             }
             set {
-                this.substationIDField = value;
+                this.substation_IDField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string FeederID {
+        public string Feeder_ID {
             get {
-                return this.feederIDField;
+                return this.feeder_IDField;
             }
             set {
-                this.feederIDField = value;
+                this.feeder_IDField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string TransformerID {
+        public string Transformer_ID {
             get {
-                return this.transformerIDField;
+                return this.transformer_IDField;
             }
             set {
-                this.transformerIDField = value;
+                this.transformer_IDField = value;
             }
         }
         
@@ -31154,133 +34470,133 @@ namespace VerificaEstadoAMI.MASSoap {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string RouteID {
+        public string Route_ID {
             get {
-                return this.routeIDField;
+                return this.route_IDField;
             }
             set {
-                this.routeIDField = value;
+                this.route_IDField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public SupplyPhase SupplyPhase {
+        public SupplyPhase Supply_Phase {
             get {
-                return this.supplyPhaseField;
+                return this.supply_PhaseField;
             }
             set {
-                this.supplyPhaseField = value;
+                this.supply_PhaseField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool SupplyPhaseSpecified {
+        public bool Supply_PhaseSpecified {
             get {
-                return this.supplyPhaseFieldSpecified;
+                return this.supply_PhaseFieldSpecified;
             }
             set {
-                this.supplyPhaseFieldSpecified = value;
+                this.supply_PhaseFieldSpecified = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string TransformerTankID {
+        public string Transformer_Tank_ID {
             get {
-                return this.transformerTankIDField;
+                return this.transformer_Tank_IDField;
             }
             set {
-                this.transformerTankIDField = value;
+                this.transformer_Tank_IDField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute(DataType="nonNegativeInteger")]
-        public string NominalVoltage {
+        public string Nominal_Voltage {
             get {
-                return this.nominalVoltageField;
+                return this.nominal_VoltageField;
             }
             set {
-                this.nominalVoltageField = value;
+                this.nominal_VoltageField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string OutageRegionID {
+        public string Outage_Region_ID {
             get {
-                return this.outageRegionIDField;
+                return this.outage_Region_IDField;
             }
             set {
-                this.outageRegionIDField = value;
+                this.outage_Region_IDField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string StreetAddress {
+        public string Street_Address {
             get {
-                return this.streetAddressField;
+                return this.street_AddressField;
             }
             set {
-                this.streetAddressField = value;
+                this.street_AddressField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string BuildingName {
+        public string Building_Name {
             get {
-                return this.buildingNameField;
+                return this.building_NameField;
             }
             set {
-                this.buildingNameField = value;
+                this.building_NameField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string StreetCode {
+        public string Street_Code {
             get {
-                return this.streetCodeField;
+                return this.street_CodeField;
             }
             set {
-                this.streetCodeField = value;
+                this.street_CodeField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string StreetNumber {
+        public string Street_Number {
             get {
-                return this.streetNumberField;
+                return this.street_NumberField;
             }
             set {
-                this.streetNumberField = value;
+                this.street_NumberField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string StreetPrefix {
+        public string Street_Prefix {
             get {
-                return this.streetPrefixField;
+                return this.street_PrefixField;
             }
             set {
-                this.streetPrefixField = value;
+                this.street_PrefixField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string StreetSuffix {
+        public string Street_Suffix {
             get {
-                return this.streetSuffixField;
+                return this.street_SuffixField;
             }
             set {
-                this.streetSuffixField = value;
+                this.street_SuffixField = value;
             }
         }
         
@@ -31297,111 +34613,111 @@ namespace VerificaEstadoAMI.MASSoap {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string StreetType {
+        public string Street_Type {
             get {
-                return this.streetTypeField;
+                return this.street_TypeField;
             }
             set {
-                this.streetTypeField = value;
+                this.street_TypeField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ElsterBoolean WithinTownLimits {
+        public ElsterBoolean Within_Town_Limits {
             get {
-                return this.withinTownLimitsField;
+                return this.within_Town_LimitsField;
             }
             set {
-                this.withinTownLimitsField = value;
+                this.within_Town_LimitsField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool WithinTownLimitsSpecified {
+        public bool Within_Town_LimitsSpecified {
             get {
-                return this.withinTownLimitsFieldSpecified;
+                return this.within_Town_LimitsFieldSpecified;
             }
             set {
-                this.withinTownLimitsFieldSpecified = value;
+                this.within_Town_LimitsFieldSpecified = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string TownCode {
+        public string Town_Code {
             get {
-                return this.townCodeField;
+                return this.town_CodeField;
             }
             set {
-                this.townCodeField = value;
+                this.town_CodeField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string TownCountry {
+        public string Town_Country {
             get {
-                return this.townCountryField;
+                return this.town_CountryField;
             }
             set {
-                this.townCountryField = value;
+                this.town_CountryField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string TownName {
+        public string Town_Name {
             get {
-                return this.townNameField;
+                return this.town_NameField;
             }
             set {
-                this.townNameField = value;
+                this.town_NameField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string TownSection {
+        public string Town_Section {
             get {
-                return this.townSectionField;
+                return this.town_SectionField;
             }
             set {
-                this.townSectionField = value;
+                this.town_SectionField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string TownStateOrProvince {
+        public string Town_State_Or_Province {
             get {
-                return this.townStateOrProvinceField;
+                return this.town_State_Or_ProvinceField;
             }
             set {
-                this.townStateOrProvinceField = value;
+                this.town_State_Or_ProvinceField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string POBox {
+        public string P_O_Box {
             get {
-                return this.pOBoxField;
+                return this.p_O_BoxField;
             }
             set {
-                this.pOBoxField = value;
+                this.p_O_BoxField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string PostalCode {
+        public string Postal_Code {
             get {
-                return this.postalCodeField;
+                return this.postal_CodeField;
             }
             set {
-                this.postalCodeField = value;
+                this.postal_CodeField = value;
             }
         }
         
@@ -31429,23 +34745,23 @@ namespace VerificaEstadoAMI.MASSoap {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ElsterBoolean RevenueDevice {
+        public ElsterBoolean Revenue {
             get {
-                return this.revenueDeviceField;
+                return this.revenueField;
             }
             set {
-                this.revenueDeviceField = value;
+                this.revenueField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool RevenueDeviceSpecified {
+        public bool RevenueSpecified {
             get {
-                return this.revenueDeviceFieldSpecified;
+                return this.revenueFieldSpecified;
             }
             set {
-                this.revenueDeviceFieldSpecified = value;
+                this.revenueFieldSpecified = value;
             }
         }
     }
@@ -31702,20 +35018,16 @@ namespace VerificaEstadoAMI.MASSoap {
         Item900MHz,
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("SSI GRPS Gateway")]
-        SSIGRPSGateway,
-        
-        /// <remarks/>
         [System.Xml.Serialization.XmlEnumAttribute("Ethernet WIC")]
         EthernetWIC,
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("GPRS WIC")]
-        GPRSWIC,
-        
-        /// <remarks/>
         [System.Xml.Serialization.XmlEnumAttribute("1xRTT WIC")]
         Item1xRTTWIC,
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("GPRS WIC")]
+        GPRSWIC,
         
         /// <remarks/>
         [System.Xml.Serialization.XmlEnumAttribute("CalAmp Viper with eWIC")]
@@ -33438,9 +36750,15 @@ namespace VerificaEstadoAMI.MASSoap {
         
         private ElsterBoolean connectAfterColdLoadPickupField;
         
+        private string coldLoadPickupPeriodInMinsField;
+        
         private ElsterBoolean connectMetersField;
         
+        private bool connectMetersFieldSpecified;
+        
         private ElsterBoolean disconnectMetersField;
+        
+        private bool disconnectMetersFieldSpecified;
         
         private string disconnectTimeField;
         
@@ -33449,7 +36767,8 @@ namespace VerificaEstadoAMI.MASSoap {
         private int priorityField;
         
         public ScheduleConnectDisconnectType() {
-            this.connectAfterColdLoadPickupField = ElsterBoolean.Item1;
+            this.connectMetersField = ElsterBoolean.Item1;
+            this.disconnectMetersField = ElsterBoolean.Item1;
             this.priorityField = 1;
         }
         
@@ -33477,13 +36796,23 @@ namespace VerificaEstadoAMI.MASSoap {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        [System.ComponentModel.DefaultValueAttribute(ElsterBoolean.Item1)]
         public ElsterBoolean ConnectAfterColdLoadPickup {
             get {
                 return this.connectAfterColdLoadPickupField;
             }
             set {
                 this.connectAfterColdLoadPickupField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="nonNegativeInteger")]
+        public string ColdLoadPickupPeriodInMins {
+            get {
+                return this.coldLoadPickupPeriodInMinsField;
+            }
+            set {
+                this.coldLoadPickupPeriodInMinsField = value;
             }
         }
         
@@ -33499,6 +36828,17 @@ namespace VerificaEstadoAMI.MASSoap {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ConnectMetersSpecified {
+            get {
+                return this.connectMetersFieldSpecified;
+            }
+            set {
+                this.connectMetersFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public ElsterBoolean DisconnectMeters {
             get {
@@ -33506,6 +36846,17 @@ namespace VerificaEstadoAMI.MASSoap {
             }
             set {
                 this.disconnectMetersField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DisconnectMetersSpecified {
+            get {
+                return this.disconnectMetersFieldSpecified;
+            }
+            set {
+                this.disconnectMetersFieldSpecified = value;
             }
         }
         
@@ -33638,6 +36989,11 @@ namespace VerificaEstadoAMI.MASSoap {
         [System.Xml.Serialization.XmlElementAttribute("ImportAction", typeof(ImportActionType))]
         [System.Xml.Serialization.XmlElementAttribute("Job", typeof(JobType))]
         [System.Xml.Serialization.XmlElementAttribute("LANSeed", typeof(LANSeedType))]
+        [System.Xml.Serialization.XmlElementAttribute("LightNodeAdd", typeof(LightNodeAddType))]
+        [System.Xml.Serialization.XmlElementAttribute("LightNodeAddDeviceToGroup", typeof(LightNodeAddDeviceToGroupType))]
+        [System.Xml.Serialization.XmlElementAttribute("LightNodeDelete", typeof(LightNodeDeleteType))]
+        [System.Xml.Serialization.XmlElementAttribute("LightNodeModify", typeof(LightNodeModifyType))]
+        [System.Xml.Serialization.XmlElementAttribute("LightNodeRemoveDeviceFromGroup", typeof(LightNodeRemoveDeviceFromGroupType))]
         [System.Xml.Serialization.XmlElementAttribute("MarriageFile", typeof(MarriageFileType))]
         [System.Xml.Serialization.XmlElementAttribute("MarriageFileSnippet", typeof(string))]
         [System.Xml.Serialization.XmlElementAttribute("Meter", typeof(ImportMeterType))]
@@ -33666,8 +37022,6 @@ namespace VerificaEstadoAMI.MASSoap {
         [System.Xml.Serialization.XmlElementAttribute("WANAccessControlList", typeof(WANAccessControlListType))]
         [System.Xml.Serialization.XmlElementAttribute("WANSeed", typeof(WANSeedType))]
         [System.Xml.Serialization.XmlElementAttribute("WICActivationFile", typeof(WICActivationFileType))]
-        [System.Xml.Serialization.XmlElementAttribute("WaitForAsyncWebServiceCall", typeof(WaitForAsyncWebServiceCallType))]
-        [System.Xml.Serialization.XmlElementAttribute("WebServiceCall", typeof(WebServiceCallType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
         public object Item {
             get {
@@ -33980,6 +37334,11 @@ namespace VerificaEstadoAMI.MASSoap {
         [System.Xml.Serialization.XmlElementAttribute("HANMessage", typeof(HANMessageType))]
         [System.Xml.Serialization.XmlElementAttribute("Job", typeof(JobType))]
         [System.Xml.Serialization.XmlElementAttribute("LANSeed", typeof(LANSeedType))]
+        [System.Xml.Serialization.XmlElementAttribute("LightNodeAdd", typeof(LightNodeAddType))]
+        [System.Xml.Serialization.XmlElementAttribute("LightNodeAddDeviceToGroup", typeof(LightNodeAddDeviceToGroupType))]
+        [System.Xml.Serialization.XmlElementAttribute("LightNodeDelete", typeof(LightNodeDeleteType))]
+        [System.Xml.Serialization.XmlElementAttribute("LightNodeModify", typeof(LightNodeModifyType))]
+        [System.Xml.Serialization.XmlElementAttribute("LightNodeRemoveDeviceFromGroup", typeof(LightNodeRemoveDeviceFromGroupType))]
         [System.Xml.Serialization.XmlElementAttribute("MarriageFile", typeof(MarriageFileType))]
         [System.Xml.Serialization.XmlElementAttribute("MarriageFileSnippet", typeof(string))]
         [System.Xml.Serialization.XmlElementAttribute("Meter", typeof(ImportMeterType))]
@@ -34008,8 +37367,6 @@ namespace VerificaEstadoAMI.MASSoap {
         [System.Xml.Serialization.XmlElementAttribute("WANAccessControlList", typeof(WANAccessControlListType))]
         [System.Xml.Serialization.XmlElementAttribute("WANSeed", typeof(WANSeedType))]
         [System.Xml.Serialization.XmlElementAttribute("WICActivationFile", typeof(WICActivationFileType))]
-        [System.Xml.Serialization.XmlElementAttribute("WaitForAsyncWebServiceCall", typeof(WaitForAsyncWebServiceCallType))]
-        [System.Xml.Serialization.XmlElementAttribute("WebServiceCall", typeof(WebServiceCallType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
         public object Item {
             get {
@@ -34531,167 +37888,6 @@ namespace VerificaEstadoAMI.MASSoap {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
-    public partial class WaitForAsyncWebServiceCallType {
-        
-        private string interfaceNameField;
-        
-        private string callNameField;
-        
-        private string transactionIdField;
-        
-        private int waitInSecondsField;
-        
-        private bool waitInSecondsFieldSpecified;
-        
-        private string[] textField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string InterfaceName {
-            get {
-                return this.interfaceNameField;
-            }
-            set {
-                this.interfaceNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string CallName {
-            get {
-                return this.callNameField;
-            }
-            set {
-                this.callNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string TransactionId {
-            get {
-                return this.transactionIdField;
-            }
-            set {
-                this.transactionIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public int WaitInSeconds {
-            get {
-                return this.waitInSecondsField;
-            }
-            set {
-                this.waitInSecondsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool WaitInSecondsSpecified {
-            get {
-                return this.waitInSecondsFieldSpecified;
-            }
-            set {
-                this.waitInSecondsFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlTextAttribute()]
-        public string[] Text {
-            get {
-                return this.textField;
-            }
-            set {
-                this.textField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport")]
-    public partial class WebServiceCallType {
-        
-        private string interfaceNameField;
-        
-        private string callNameField;
-        
-        private string usernameField;
-        
-        private string passwordField;
-        
-        private string[] textField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string InterfaceName {
-            get {
-                return this.interfaceNameField;
-            }
-            set {
-                this.interfaceNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string CallName {
-            get {
-                return this.callNameField;
-            }
-            set {
-                this.callNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Username {
-            get {
-                return this.usernameField;
-            }
-            set {
-                this.usernameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Password {
-            get {
-                return this.passwordField;
-            }
-            set {
-                this.passwordField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlTextAttribute()]
-        public string[] Text {
-            get {
-                return this.textField;
-            }
-            set {
-                this.textField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.elster-eis.com/ImportExport", IncludeInSchema=false)]
     public enum ItemChoiceType2 {
         
@@ -34798,6 +37994,21 @@ namespace VerificaEstadoAMI.MASSoap {
         LANSeed,
         
         /// <remarks/>
+        LightNodeAdd,
+        
+        /// <remarks/>
+        LightNodeAddDeviceToGroup,
+        
+        /// <remarks/>
+        LightNodeDelete,
+        
+        /// <remarks/>
+        LightNodeModify,
+        
+        /// <remarks/>
+        LightNodeRemoveDeviceFromGroup,
+        
+        /// <remarks/>
         MarriageFile,
         
         /// <remarks/>
@@ -34880,12 +38091,6 @@ namespace VerificaEstadoAMI.MASSoap {
         
         /// <remarks/>
         WICActivationFile,
-        
-        /// <remarks/>
-        WaitForAsyncWebServiceCall,
-        
-        /// <remarks/>
-        WebServiceCall,
     }
     
     /// <remarks/>
@@ -35529,6 +38734,21 @@ namespace VerificaEstadoAMI.MASSoap {
         LANSeed,
         
         /// <remarks/>
+        LightNodeAdd,
+        
+        /// <remarks/>
+        LightNodeAddDeviceToGroup,
+        
+        /// <remarks/>
+        LightNodeDelete,
+        
+        /// <remarks/>
+        LightNodeModify,
+        
+        /// <remarks/>
+        LightNodeRemoveDeviceFromGroup,
+        
+        /// <remarks/>
         MarriageFile,
         
         /// <remarks/>
@@ -35611,12 +38831,6 @@ namespace VerificaEstadoAMI.MASSoap {
         
         /// <remarks/>
         WICActivationFile,
-        
-        /// <remarks/>
-        WaitForAsyncWebServiceCall,
-        
-        /// <remarks/>
-        WebServiceCall,
     }
     
     /// <remarks/>
@@ -35741,6 +38955,21 @@ namespace VerificaEstadoAMI.MASSoap {
         LANSeed,
         
         /// <remarks/>
+        LightNodeAdd,
+        
+        /// <remarks/>
+        LightNodeAddDeviceToGroup,
+        
+        /// <remarks/>
+        LightNodeDelete,
+        
+        /// <remarks/>
+        LightNodeModify,
+        
+        /// <remarks/>
+        LightNodeRemoveDeviceFromGroup,
+        
+        /// <remarks/>
         MarriageFile,
         
         /// <remarks/>
@@ -35826,12 +39055,6 @@ namespace VerificaEstadoAMI.MASSoap {
         
         /// <remarks/>
         WICActivationFile,
-        
-        /// <remarks/>
-        WaitForAsyncWebServiceCall,
-        
-        /// <remarks/>
-        WebServiceCall,
     }
     
     /// <remarks/>

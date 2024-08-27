@@ -112,76 +112,76 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Web References\CD_ServerSoap\CD_Server.wsdl" />
-    <None Include="Web References\CD_ServerSoap\domainMember1.datasource">
+    <None Include="Web References\CD_ServerSoap\CD_ServerSoap.wsdl" />
+    <None Include="Web References\CD_ServerSoap\domainMember.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\CD_ServerSoap\errorObject1.datasource">
+    <None Include="Web References\CD_ServerSoap\errorObject.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\CD_ServerSoap\loadActionCode1.datasource">
+    <None Include="Web References\CD_ServerSoap\loadActionCode.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\CD_ServerSoap\meter1.datasource">
+    <None Include="Web References\CD_ServerSoap\meter.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\CD_ServerSoap\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Web References\CD_ServerSoap\registrationInfo1.datasource">
+    <None Include="Web References\CD_ServerSoap\registrationInfo.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\MASSoap\ExecuteReportResponseType1.datasource">
+    <None Include="Web References\MASSoap\ExecuteReportResponseType.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\MASSoap\GetDetailedReadingsForScheduleRunResponse1.datasource">
+    <None Include="Web References\MASSoap\GetDetailedReadingsForScheduleRunResponse.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\MASSoap\GetInvokeCommandSeqResultResponse1.datasource">
+    <None Include="Web References\MASSoap\GetInvokeCommandSeqResultResponse.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\MASSoap\GetReadingsCompressedResponse1.datasource">
+    <None Include="Web References\MASSoap\GetReadingsCompressedResponse.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\MASSoap\GetReadingsForScheduleRunResponse1.datasource">
+    <None Include="Web References\MASSoap\GetReadingsForScheduleRunResponse.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\MASSoap\GetReadingsResponse1.datasource">
+    <None Include="Web References\MASSoap\GetReadingsResponse.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\MASSoap\GetRegisteredNodesResponse1.datasource">
+    <None Include="Web References\MASSoap\GetRegisteredNodesResponse.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\MASSoap\GetReportNamesResponseType1.datasource">
+    <None Include="Web References\MASSoap\GetReportNamesResponseType.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\MASSoap\GetReportSignatureResponseType1.datasource">
+    <None Include="Web References\MASSoap\GetReportSignatureResponseType.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\MASSoap\GetScheduleRunsResponse1.datasource">
+    <None Include="Web References\MASSoap\GetScheduleRunsResponse.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\MASSoap\GetSchedulesResponse1.datasource">
+    <None Include="Web References\MASSoap\GetSchedulesResponse.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\MASSoap\GetUnknownLANIDsResponse1.datasource">
+    <None Include="Web References\MASSoap\GetUnknownLANIDsResponse.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\MASSoap\GetVoltageDataResponse1.datasource">
+    <None Include="Web References\MASSoap\GetVoltageDataResponse.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\MASSoap\InvokeCommandSeqResponse1.datasource">
+    <None Include="Web References\MASSoap\InvokeCommandSeqResponse.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\MASSoap\InvokeCommandSeqStringResponseType1.datasource">
+    <None Include="Web References\MASSoap\InvokeCommandSeqStringResponseType.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\MASSoap\MAS.wsdl" />
-    <None Include="Web References\MASSoap\PingResponse1.datasource">
+    <None Include="Web References\MASSoap\PingResponse.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\MASSoap\PowerStatusCheckResponseType1.datasource">
+    <None Include="Web References\MASSoap\PowerStatusCheckResponseType.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\MASSoap\Reference.map">
@@ -201,30 +201,6 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://192.168.100.66/axis2/services/CD_Server%3fwsdl">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\CD_ServerSoap\</RelPath>
-      <UpdateFromURL>http://192.168.100.66/axis2/services/CD_Server%3fwsdl</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>GestionMedidores_CD_ServerSoap_CD_Server</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://192.168.100.66/axis2/services/MAS%3fwsdl">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\MASSoap\</RelPath>
-      <UpdateFromURL>http://192.168.100.66/axis2/services/MAS%3fwsdl</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>GestionMedidores_MASSoap_MAS</CachedSettingsPropName>
-    </WebReferenceUrl>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.6.1 %28x86 y x64%29</ProductName>
@@ -238,6 +214,30 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://192.168.100.41/ms-cd-3/services/CD_ServerSoap%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CD_ServerSoap\</RelPath>
+      <UpdateFromURL>http://192.168.100.41/ms-cd-3/services/CD_ServerSoap%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>VerificaEstadoAMI_CD_ServerSoap_CD_Server</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.100.41/ws-mas/services/MAS%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\MASSoap\</RelPath>
+      <UpdateFromURL>http://192.168.100.41/ws-mas/services/MAS%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>VerificaEstadoAMI_MASSoap_MAS</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -93,7 +93,7 @@ namespace VerificaEstadoAMI.CD_ServerSoap {
         
         /// <remarks/>
         public CD_Server() {
-            this.Url = global::VerificaEstadoAMI.Properties.Settings.Default.GestionMedidores_CD_ServerSoap_CD_Server;
+            this.Url = global::VerificaEstadoAMI.Properties.Settings.Default.VerificaEstadoAMI_CD_ServerSoap_CD_Server;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -6989,11 +6989,11 @@ namespace VerificaEstadoAMI.CD_ServerSoap {
         
         private string indexField;
         
-        private string valueField;
+        private string value2Field;
         
         private string codeStringField;
         
-        private string valueField1;
+        private string valueField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -7041,12 +7041,12 @@ namespace VerificaEstadoAMI.CD_ServerSoap {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string value {
+        public string value2 {
             get {
-                return this.valueField;
+                return this.value2Field;
             }
             set {
-                this.valueField = value;
+                this.value2Field = value;
             }
         }
         
@@ -7065,10 +7065,10 @@ namespace VerificaEstadoAMI.CD_ServerSoap {
         [System.Xml.Serialization.XmlTextAttribute()]
         public string Value {
             get {
-                return this.valueField1;
+                return this.valueField;
             }
             set {
-                this.valueField1 = value;
+                this.valueField = value;
             }
         }
     }

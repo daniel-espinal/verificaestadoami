@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Results>
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://192.168.100.41/axis2/services/CD_Server?wsdl" filename="CD_Server.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://192.168.100.41/ms-cd-3/services/CD_ServerSoap?wsdl" filename="CD_ServerSoap.wsdl" />
   </Results>
 </DiscoveryClientResultsFile>

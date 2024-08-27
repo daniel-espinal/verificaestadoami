@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.elster-eis.com/ImportExport" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.elster-eis.com/ImportExport" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.elster-eis.com/ImportExport" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.elster-eis.com/ImportExport" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.elster-eis.com/ImportExport">
       <xsd:element name="AMRDEF">
@@ -48,7 +48,7 @@
         <xsd:annotation>
           <xsd:documentation> Dates in AMRDef are all assumed to be in GMT and are of the following form:
          "2004-03-02 12:22:13" (YYYY-MM-DD HH:mm:ss)
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
           <xsd:pattern value="(\d{4}-\d{1,2}-\d{1,2} \d{1,2}:\d{2}:\d{2})|(now.*)" />
@@ -98,8 +98,8 @@
       <xsd:simpleType name="CTOStartDate">
         <xsd:annotation>
           <xsd:documentation> Dates in AMRDef are all assumed to be in GMT and are of the following form:
-         "2004-03-02 12:22:13" (YYYY-MM-DD HH:mm:ss); also the CTO start date has to align with a 15 min boundary.
-			</xsd:documentation>
+         "2004-03-02 12:22:13" (YYYY-MM-DD HH:mm:ss); also the CTO start date has to allign a 15 min boundary.
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
           <xsd:pattern value="(\d{4}-\d{1,2}-\d{1,2} \d{1,2}:(00|15|30|45):00)|(now.*)" />
@@ -108,7 +108,7 @@
       <xsd:simpleType name="CTODuration">
         <xsd:annotation>
           <xsd:documentation> in increments of 15  minutes
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
           <xsd:pattern value="(15|30|45|60|75|90|105|120|135|150|165|180|195|210|225|240|255|270|285|300|315|330|345|360|375|390|405|420|435|450|465|480|495|510|525|540|555|570|585|600|615|630|645|660|675|690|705|720|735|750|765|780|795|810|825|840|855|870|885|900|915|930|945|960|975|990|1005|1020|1035|1050|1065|1080|1095|1110|1125|1140|1155|1170|1185|1200|1215|1230|1245|1260|1275|1290|1305|1320|1335|1350|1365|1380|1395|1410|1425)" />
@@ -117,7 +117,7 @@
       <xsd:simpleType name="IPAddress">
         <xsd:annotation>
           <xsd:documentation> IPV4 Address 
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
           <xsd:pattern value="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" />
@@ -136,7 +136,7 @@
       <xsd:simpleType name="HexString16">
         <xsd:annotation>
           <xsd:documentation> 16 HEX characters 
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
           <xsd:pattern value="[0-9A-Fa-f]{16}" />
@@ -145,7 +145,7 @@
       <xsd:simpleType name="HexString32">
         <xsd:annotation>
           <xsd:documentation> 32 HEX characters 
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
           <xsd:pattern value="[0-9A-Fa-f]{32}" />
@@ -154,16 +154,31 @@
       <xsd:simpleType name="ElsterString">
         <xsd:annotation>
           <xsd:documentation> Alphanumeric and ".", "-", "_".
-			</xsd:documentation>
+			Limit the length such that unreasonably large strings cannot be passed. Do not treat this length as the max size of strings you can pass.
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
+          <xsd:minLength value="0" />
+          <xsd:maxLength value="300" />
           <xsd:pattern value="([A-Za-z0-9]|\-|\.|_| |\(|\))*" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="FilePathType">
+        <xsd:restriction base="xsd:anyURI">
+          <xsd:minLength value="4" />
+          <xsd:maxLength value="500" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LimitedLengthString">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="0" />
+          <xsd:maxLength value="600" />
         </xsd:restriction>
       </xsd:simpleType>
       <xsd:simpleType name="RateLabelString">
         <xsd:annotation>
           <xsd:documentation> Alphanumeric and ".", "-", "_".
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
           <xsd:minLength value="1" />
@@ -175,7 +190,7 @@
         <xsd:annotation>
           <xsd:documentation> 
 			10 Byte char string.  Only capital letters, numbers (0-9), and spaces
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
           <xsd:minLength value="1" />
@@ -186,16 +201,25 @@
       <xsd:simpleType name="ElsterStringWithCommaColonEtc">
         <xsd:annotation>
           <xsd:documentation> Alphanumeric and ".", "-", "_", ",", ":"., /
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
           <xsd:pattern value="([A-Za-z0-9]|\-|\.|_|,|:|/| )*" />
         </xsd:restriction>
       </xsd:simpleType>
+      <xsd:simpleType name="ElsterStringWithCommaColonPipeEtc">
+        <xsd:annotation>
+          <xsd:documentation> Alphanumeric and ".", "-", "_", ",", ":"., /
+      </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="([A-Za-z0-9]|\||\-|\.|_|,|:|/| )*" />
+        </xsd:restriction>
+      </xsd:simpleType>
       <xsd:simpleType name="HANMessageStringType">
         <xsd:annotation>
           <xsd:documentation> Alphanumeric and ".", "-", "_", ",", ":", "?", "!", @, $
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
           <xsd:minLength value="0" />
@@ -207,7 +231,7 @@
         <xsd:annotation>
           <xsd:documentation> 
 			Maximum length = 6 characters [0-9], a-z, - and SPACE.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
           <xsd:minLength value="1" />
@@ -231,6 +255,18 @@
         <xsd:restriction base="xsd:nonNegativeInteger">
           <xsd:minInclusive value="10" />
           <xsd:maxInclusive value="255" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LightNodeGroupIdType">
+        <xsd:restriction base="xsd:nonNegativeInteger">
+          <xsd:minInclusive value="0" />
+          <xsd:maxInclusive value="255" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ColdLoadPickupPeriodInMinutes">
+        <xsd:restriction base="xsd:nonNegativeInteger">
+          <xsd:minInclusive value="0" />
+          <xsd:maxInclusive value="200" />
         </xsd:restriction>
       </xsd:simpleType>
       <xsd:simpleType name="GKScheduleFrequency">
@@ -259,8 +295,8 @@
           <xsd:enumeration value="IPGKR" />
           <xsd:enumeration value="REXU-CELL" />
           <xsd:enumeration value="REXU-EA" />
-          <xsd:enumeration value="LightNode" />
           <xsd:enumeration value="REXU-SynergyNet" />
+          <xsd:enumeration value="A3-SynergyNet" />
         </xsd:restriction>
       </xsd:simpleType>
       <xsd:simpleType name="CommMediaType">
@@ -268,10 +304,9 @@
           <xsd:enumeration value="Telephone" />
           <xsd:enumeration value="IP" />
           <xsd:enumeration value="900MHz" />
-          <xsd:enumeration value="SSI GRPS Gateway" />
           <xsd:enumeration value="Ethernet WIC" />
-          <xsd:enumeration value="GPRS WIC" />
           <xsd:enumeration value="1xRTT WIC" />
+          <xsd:enumeration value="GPRS WIC" />
           <xsd:enumeration value="CalAmp Viper with eWIC" />
           <xsd:enumeration value="HSPA" />
           <xsd:enumeration value="EVDO" />
@@ -350,7 +385,7 @@
 				id=54;name=(GMT - 06:00) Central Time (Costa Rica)
 				id=55;name=(GMT - 05:00) Eastern Time (Cayman Islands)
 				id=56;name=(GMT + 10:00) Melbourne
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
           <xsd:enumeration value="(GMT - 12:00) Eniwetok, Kwajalein" />
@@ -412,6 +447,28 @@
           <xsd:enumeration value="(GMT + 10:00) Melbourne" />
         </xsd:restriction>
       </xsd:simpleType>
+      <xsd:simpleType name="LatitudeType">
+        <xsd:annotation>
+          <xsd:documentation>
+				The latitude of the point.  Decimal degrees, WGS84 datum.
+			</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:decimal">
+          <xsd:minInclusive value="-90.0" />
+          <xsd:maxInclusive value="90.0" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LongitudeType">
+        <xsd:annotation>
+          <xsd:documentation>
+			 The longitude of the point.  Decimal degrees, WGS84 datum.
+			</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:decimal">
+          <xsd:minInclusive value="-180.0" />
+          <xsd:maxExclusive value="180.0" />
+        </xsd:restriction>
+      </xsd:simpleType>
       <xsd:complexType name="ImportMeterType">
         <xsd:annotation>
           <xsd:documentation> Use Meter element to add, modify, remove or delete a meter. Delete is done by setting the IsActive attribute to '0' and remove by setting the RemovalDate. Otherwise just including a Meter section causes the meter to be created if it does not already exist. If the meter exists, it is modified with the values specified. Several rules apply to meter's life cycle:
@@ -421,7 +478,7 @@
    - If a IP AxisLink is being created, it must have had the WIC action file imported. To enable DA functionality you must specify SubNet, SubnetMask, TunnelEnabled and DTLSReconnectPort
    - If a meter has been installed, it must first be removed before it may be deleted.
    - To specify a time zone, either include the TimeZone attribute or the TimeZoneId.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:attribute name="SerialNumber" type="tns:ElsterString" use="optional" />
         <xsd:attribute name="MeterType" type="tns:MeterType" use="optional" />
@@ -435,24 +492,19 @@
         <xsd:attribute name="SDPId" type="tns:ElsterString" use="optional" />
         <xsd:attribute name="SDPID" type="tns:ElsterString" use="optional" />
         <xsd:attribute name="SiteLocation" type="tns:ElsterString" use="optional" />
-        <xsd:attribute name="TouSchedule" type="tns:ElsterString" use="optional" />
         <xsd:attribute name="TOUSchedule" type="tns:ElsterString" use="optional" />
-        <xsd:attribute name="BillingPassword" type="xsd:string" use="optional" />
-        <xsd:attribute name="UnrestrictedPassword" type="xsd:string" use="optional" />
-        <xsd:attribute name="TimeZone" type="tns:ElsterTimeZones" use="optional" />
+        <xsd:attribute name="BillingPassword" type="tns:LimitedLengthString" use="optional" />
+        <xsd:attribute name="UnrestrictedPassword" type="tns:LimitedLengthString" use="optional" />
         <xsd:attribute name="Timezone" type="tns:ElsterTimeZones" use="optional" />
-        <xsd:attribute name="TimeZoneId" type="xsd:int" use="optional" />
         <xsd:attribute name="TimezoneId" type="xsd:int" use="optional" />
-        <xsd:attribute name="TimeZoneID" type="xsd:int" use="optional" />
-        <xsd:attribute name="TimezoneID" type="xsd:int" use="optional" />
         <xsd:attribute name="ObservesDST" type="tns:ElsterBoolean" use="optional" />
         <xsd:attribute name="CommMediaType" type="tns:CommMediaType" use="optional" />
         <xsd:attribute name="CallMode" type="tns:CallMode" use="optional" />
-        <xsd:attribute name="CommAddress" type="tns:ElsterStringWithCommaColonEtc" use="optional" />
-        <xsd:attribute name="CommTemplate" type="xsd:string" use="optional" />
+        <xsd:attribute name="CommAddress" type="tns:LimitedLengthString" use="optional" />
+        <xsd:attribute name="CommTemplate" type="tns:LimitedLengthString" use="optional" />
         <xsd:attribute name="DeviceNumber" type="tns:ElsterString" use="optional" />
-        <xsd:attribute name="Latitude" type="xsd:float" use="optional" />
-        <xsd:attribute name="Longitude" type="xsd:float" use="optional" />
+        <xsd:attribute name="Latitude" type="tns:LatitudeType" use="optional" />
+        <xsd:attribute name="Longitude" type="tns:LongitudeType" use="optional" />
         <xsd:attribute name="ClearLatLong" type="tns:ElsterBoolean" use="optional" />
         <xsd:attribute name="OperatingTerritory" type="tns:ElsterString" use="optional" />
         <xsd:attribute name="Direction" type="tns:GeographicalDirectionType" use="optional" />
@@ -463,42 +515,42 @@
         <xsd:attribute name="SubnetMask" type="tns:SubnetMask" use="optional" />
         <xsd:attribute name="TunnelEnabled" type="tns:ElsterBoolean" use="optional" />
         <xsd:attribute name="DTLSReconnectPort" type="xsd:int" use="optional" />
-        <xsd:attribute name="BillingCycleID" type="tns:ElsterString" use="optional" />
-        <xsd:attribute name="AreaID" type="tns:ElsterString" use="optional" />
-        <xsd:attribute name="SubstationID" type="tns:ElsterString" use="optional" />
-        <xsd:attribute name="FeederID" type="tns:ElsterString" use="optional" />
-        <xsd:attribute name="TransformerID" type="tns:ElsterString" use="optional" />
+        <xsd:attribute name="Billing_Cycle_ID" type="tns:ElsterString" use="optional" />
+        <xsd:attribute name="Area_ID" type="tns:ElsterString" use="optional" />
+        <xsd:attribute name="Substation_ID" type="tns:ElsterString" use="optional" />
+        <xsd:attribute name="Feeder_ID" type="tns:ElsterString" use="optional" />
+        <xsd:attribute name="Transformer_ID" type="tns:ElsterString" use="optional" />
         <xsd:attribute name="Manufacturer" type="tns:ElsterString" use="optional" />
-        <xsd:attribute name="RouteID" type="tns:ElsterString" use="optional" />
-        <xsd:attribute name="SupplyPhase" type="tns:SupplyPhase" use="optional" />
-        <xsd:attribute name="TransformerTankID" type="tns:ElsterString" use="optional" />
-        <xsd:attribute name="NominalVoltage" type="xsd:nonNegativeInteger" use="optional" />
-        <xsd:attribute name="OutageRegionID" type="tns:ElsterString" use="optional" />
-        <xsd:attribute name="StreetAddress" type="tns:ElsterString" use="optional" />
-        <xsd:attribute name="BuildingName" type="tns:ElsterString" use="optional" />
-        <xsd:attribute name="StreetCode" type="tns:ElsterString" use="optional" />
-        <xsd:attribute name="StreetNumber" type="tns:ElsterString" use="optional" />
-        <xsd:attribute name="StreetPrefix" type="tns:ElsterString" use="optional" />
-        <xsd:attribute name="StreetSuffix" type="tns:ElsterString" use="optional" />
+        <xsd:attribute name="Route_ID" type="tns:ElsterString" use="optional" />
+        <xsd:attribute name="Supply_Phase" type="tns:SupplyPhase" use="optional" />
+        <xsd:attribute name="Transformer_Tank_ID" type="tns:ElsterString" use="optional" />
+        <xsd:attribute name="Nominal_Voltage" type="xsd:nonNegativeInteger" use="optional" />
+        <xsd:attribute name="Outage_Region_ID" type="tns:ElsterString" use="optional" />
+        <xsd:attribute name="Street_Address" type="tns:ElsterString" use="optional" />
+        <xsd:attribute name="Building_Name" type="tns:ElsterString" use="optional" />
+        <xsd:attribute name="Street_Code" type="tns:ElsterString" use="optional" />
+        <xsd:attribute name="Street_Number" type="tns:ElsterString" use="optional" />
+        <xsd:attribute name="Street_Prefix" type="tns:ElsterString" use="optional" />
+        <xsd:attribute name="Street_Suffix" type="tns:ElsterString" use="optional" />
         <xsd:attribute name="Suite" type="tns:ElsterString" use="optional" />
-        <xsd:attribute name="StreetType" type="tns:ElsterString" use="optional" />
-        <xsd:attribute name="WithinTownLimits" type="tns:ElsterBoolean" use="optional" />
-        <xsd:attribute name="TownCode" type="tns:ElsterString" use="optional" />
-        <xsd:attribute name="TownCountry" type="tns:ElsterString" use="optional" />
-        <xsd:attribute name="TownName" type="tns:ElsterString" use="optional" />
-        <xsd:attribute name="TownSection" type="tns:ElsterString" use="optional" />
-        <xsd:attribute name="TownStateOrProvince" type="tns:ElsterString" use="optional" />
-        <xsd:attribute name="POBox" type="tns:ElsterString" use="optional" />
-        <xsd:attribute name="PostalCode" type="tns:ElsterString" use="optional" />
+        <xsd:attribute name="Street_Type" type="tns:ElsterString" use="optional" />
+        <xsd:attribute name="Within_Town_Limits" type="tns:ElsterBoolean" use="optional" />
+        <xsd:attribute name="Town_Code" type="tns:ElsterString" use="optional" />
+        <xsd:attribute name="Town_Country" type="tns:ElsterString" use="optional" />
+        <xsd:attribute name="Town_Name" type="tns:ElsterString" use="optional" />
+        <xsd:attribute name="Town_Section" type="tns:ElsterString" use="optional" />
+        <xsd:attribute name="Town_State_Or_Province" type="tns:ElsterString" use="optional" />
+        <xsd:attribute name="P_O_Box" type="tns:ElsterString" use="optional" />
+        <xsd:attribute name="Postal_Code" type="tns:ElsterString" use="optional" />
         <xsd:attribute name="Application" type="tns:Application" use="optional" />
-        <xsd:attribute name="RevenueDevice" type="tns:ElsterBoolean" use="optional" />
+        <xsd:attribute name="Revenue" type="tns:ElsterBoolean" use="optional" />
       </xsd:complexType>
       <xsd:element name="MarriageFileSnippet" type="xsd:string" />
       <xsd:element name="ReadMeterBilling" type="tns:ReadMeterBillingType" />
       <xsd:complexType name="ReadMeterBillingType">
         <xsd:annotation>
           <xsd:documentation> Use ReadMeterBilling to read the meter for billing. Note that a meter may be assigned to a single billing schedule only. Including this section causes the system to re-read the meter for the components in the billing data set. Since most billing schedules will contain a demand reset, be warned that this section will cause a demand reset in the meter.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence />
         <xsd:attribute name="MeterName" type="tns:ElsterString" use="required" />
@@ -506,12 +558,7 @@
       </xsd:complexType>
       <xsd:element name="Component" type="tns:ComponentType" />
       <xsd:complexType name="ComponentType">
-        <xsd:annotation>
-          <xsd:documentation>
-             A list of component type names is available in Chapter 9 of the EA_MS user guide.
-			</xsd:documentation>
-        </xsd:annotation>
-        <xsd:attribute name="Name" type="xsd:string" />
+        <xsd:attribute name="Name" type="tns:LimitedLengthString" />
       </xsd:complexType>
       <xsd:element name="CheckMeter" type="tns:CheckMeterType" />
       <xsd:complexType name="CheckMeterType">
@@ -525,11 +572,11 @@
       <xsd:complexType name="ReadMeterType">
         <xsd:annotation>
           <xsd:documentation>
-             Use ReadMeter to read a meter for an arbitrary component or a set of components.
+       Use ReadMeter to read a meter for an arbitrary component or a set of components.
 			 NumReadAttempts to specify how many attempts to make to read the meter.
 			 WaitInSeconds: maximum time the system should wait before giving up on reading the meter.
 			 ReturnReadings: set to 1 if readings should be returned in response.
-			</xsd:documentation>
+     </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
           <xsd:element maxOccurs="unbounded" ref="tns:Component" />
@@ -578,7 +625,7 @@
       <xsd:element name="DataSet" type="tns:DataSetType" />
       <xsd:complexType name="DataSetType">
         <xsd:sequence>
-          <xsd:choice maxOccurs="unbounded">
+          <xsd:choice minOccurs="1" maxOccurs="unbounded">
             <xsd:element ref="tns:Component" />
           </xsd:choice>
         </xsd:sequence>
@@ -590,11 +637,11 @@
       <xsd:complexType name="JobType">
         <xsd:annotation>
           <xsd:documentation>
-       Use Job object to  create a piece of work consisting of multiple workitems. Each work item is used to perform some on request operation related to one meter/element.
-			</xsd:documentation>
+       Use Job object to  create a piece of work consisting of multiple workitems. Each work item is used to perform some on request       operation related to one meter/element.
+     </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
-          <xsd:element maxOccurs="unbounded" ref="tns:WorkItem" />
+          <xsd:element minOccurs="1" maxOccurs="unbounded" ref="tns:WorkItem" />
         </xsd:sequence>
         <xsd:attribute name="JobName" type="tns:ElsterString" use="optional" />
         <xsd:attribute name="ContextId" type="tns:ElsterString" use="optional" />
@@ -613,7 +660,7 @@
         <xsd:attribute name="Priority" type="xsd:nonNegativeInteger" use="optional" />
         <xsd:attribute name="RetryCount" type="xsd:nonNegativeInteger" use="optional" />
         <xsd:attribute name="SecondsBetweenRetries" type="xsd:nonNegativeInteger" use="optional" />
-        <xsd:attribute name="FileLocation" type="xsd:string" use="optional" />
+        <xsd:attribute name="FileLocation" type="tns:LimitedLengthString" use="optional" />
       </xsd:complexType>
       <xsd:element name="WorkItemOutcome" type="tns:WorkItemOutcomeType" />
       <xsd:complexType name="WorkItemOutcomeType">
@@ -644,7 +691,7 @@
        Use Schedule object to create data collection, billing or download schedules.
 			 Set OverWrite="1" if you want to modify the schedule, for example if you want to add new dates to
 			 a list schedule.
-			</xsd:documentation>
+     </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
           <xsd:choice minOccurs="0">
@@ -663,7 +710,7 @@
         <xsd:attribute name="StartTime" type="tns:ElsterDateWithNow" use="optional" />
         <xsd:attribute name="MinutesFromNow" type="xsd:int" use="optional" />
         <xsd:attribute name="UsedFor" type="tns:ScheduleUsedForType" use="optional" />
-        <xsd:attribute name="FileLocation" type="xsd:string" use="optional" />
+        <xsd:attribute name="FileLocation" type="tns:LimitedLengthString" use="optional" />
         <xsd:attribute name="EnableAutoResubmit" type="tns:ElsterBoolean" use="optional" />
         <xsd:attribute name="MAXAutoResubmitCount" type="xsd:nonNegativeInteger" use="optional" />
         <xsd:attribute name="SecondsBetweenAutoResubmits" type="xsd:nonNegativeInteger" use="optional" />
@@ -713,6 +760,48 @@
       <xsd:complexType name="ExecutionTimeType">
         <xsd:attribute name="date" type="tns:ElsterDateWithAndWithoutTimeAndNow" use="required" />
       </xsd:complexType>
+      <xsd:element name="GroupId" type="tns:GroupIdType" />
+      <xsd:complexType name="GroupIdType">
+        <xsd:attribute name="GroupIdNumber" type="tns:LightNodeGroupIdType" use="required" />
+      </xsd:complexType>
+      <xsd:element name="LightNodeAddDeviceToGroup" type="tns:LightNodeAddDeviceToGroupType" />
+      <xsd:complexType name="LightNodeAddDeviceToGroupType">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="unbounded" ref="tns:GroupId" />
+        </xsd:sequence>
+        <xsd:attribute name="DeviceName" type="tns:ElsterString" use="required" />
+        <xsd:attribute name="CorrelationId" type="tns:ElsterString" use="required" />
+      </xsd:complexType>
+      <xsd:element name="LightNodeRemoveDeviceFromGroup" type="tns:LightNodeRemoveDeviceFromGroupType" />
+      <xsd:complexType name="LightNodeRemoveDeviceFromGroupType">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="unbounded" ref="tns:GroupId" />
+        </xsd:sequence>
+        <xsd:attribute name="DeviceName" type="tns:ElsterString" use="required" />
+        <xsd:attribute name="CorrelationId" type="tns:ElsterString" use="required" />
+      </xsd:complexType>
+      <xsd:element name="LightNodeAdd" type="tns:LightNodeAddType" />
+      <xsd:complexType name="LightNodeAddType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" ref="tns:GroupId" />
+        </xsd:sequence>
+        <xsd:attribute name="Name" type="tns:ElsterString" use="required" />
+        <xsd:attribute name="SerialNo" type="tns:ElsterString" use="required" />
+        <xsd:attribute name="LANID" type="xsd:int" use="required" />
+        <xsd:attribute name="Latitude" type="tns:LatitudeType" use="optional" />
+        <xsd:attribute name="Longitude" type="tns:LongitudeType" use="optional" />
+      </xsd:complexType>
+      <xsd:element name="LightNodeModify" type="tns:LightNodeModifyType" />
+      <xsd:complexType name="LightNodeModifyType">
+        <xsd:attribute name="ExistingName" type="tns:ElsterString" use="required" />
+        <xsd:attribute name="NewName" type="tns:ElsterString" use="optional" />
+        <xsd:attribute name="Latitude" type="tns:LatitudeType" use="optional" />
+        <xsd:attribute name="Longitude" type="tns:LongitudeType" use="optional" />
+      </xsd:complexType>
+      <xsd:element name="LightNodeDelete" type="tns:LightNodeDeleteType" />
+      <xsd:complexType name="LightNodeDeleteType">
+        <xsd:attribute name="DeviceName" type="tns:ElsterString" use="required" />
+      </xsd:complexType>
       <xsd:element name="MeterName" type="tns:MeterNameType" />
       <xsd:complexType name="MeterNameType">
         <xsd:attribute name="MeterName" type="tns:ElsterString" use="required" />
@@ -725,7 +814,7 @@
 				Use RunNow if you want the schedule to run without delay. Use StartTime otherwise. 
 				If you use StartTime, make sure it is at least a few minutes into the future. At least 10 minutes 
 				if you have several hundred meters.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
           <xsd:element maxOccurs="unbounded" ref="tns:MeterName" />
@@ -737,7 +826,7 @@
         <xsd:attribute name="UsedFor" type="tns:MultipleUsedForType" use="required" />
         <xsd:attribute name="StartTime" type="tns:ElsterDateWithNow" use="optional" />
         <xsd:attribute name="Description" type="tns:ElsterString" use="optional" />
-        <xsd:attribute name="FileLocation" type="xsd:string" use="optional" />
+        <xsd:attribute name="FileLocation" type="tns:LimitedLengthString" use="optional" />
         <xsd:attribute name="MinutesFromNow" type="xsd:int" use="optional" />
         <xsd:attribute name="RunNow" type="tns:ElsterBoolean" use="optional" />
         <xsd:attribute name="Priority" type="xsd:nonNegativeInteger" use="optional" />
@@ -748,9 +837,10 @@
           <xsd:element maxOccurs="unbounded" ref="tns:MeterName" />
         </xsd:sequence>
         <xsd:attribute name="JobName" type="tns:ElsterString" use="required" />
-        <xsd:attribute default="1" name="ConnectAfterColdLoadPickup" type="tns:ElsterBoolean" />
-        <xsd:attribute name="ConnectMeters" type="tns:ElsterBoolean" use="required" />
-        <xsd:attribute name="DisconnectMeters" type="tns:ElsterBoolean" use="required" />
+        <xsd:attribute name="ConnectAfterColdLoadPickup" type="tns:ElsterBoolean" use="required" />
+        <xsd:attribute name="ColdLoadPickupPeriodInMins" type="tns:ColdLoadPickupPeriodInMinutes" use="required" />
+        <xsd:attribute fixed="1" name="ConnectMeters" type="tns:ElsterBoolean" />
+        <xsd:attribute fixed="1" name="DisconnectMeters" type="tns:ElsterBoolean" />
         <xsd:attribute name="DisconnectTime" type="tns:ElsterDateWithNow" use="required" />
         <xsd:attribute name="ConnectTime" type="tns:ElsterDateWithNow" use="required" />
         <xsd:attribute default="1" name="Priority" type="xsd:int" />
@@ -768,11 +858,11 @@
           <xsd:documentation>
       	Create/Modify/Delete a TOU Schedule. While creating, MeterCatFilePath must
       	be specified, also the operating territory.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence />
         <xsd:attribute name="Name" type="tns:ElsterString" use="required" />
-        <xsd:attribute name="MeterCatFilePath" type="xsd:string" use="optional" />
+        <xsd:attribute name="MeterCatFilePath" type="tns:LimitedLengthString" use="optional" />
         <xsd:attribute name="OperatingTerritory" type="tns:ElsterString" use="optional" />
         <xsd:attribute name="IsActive" type="tns:ElsterBoolean" use="optional" />
         <xsd:attribute name="OverWrite" type="tns:ElsterBoolean" use="optional" />
@@ -788,7 +878,7 @@
       <xsd:complexType name="SleepType">
         <xsd:annotation>
           <xsd:documentation> Use Sleep to sleep for the amount specified before executing the next action.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence />
         <xsd:attribute name="InSeconds" type="xsd:int" use="required" />
@@ -931,7 +1021,7 @@
       <xsd:complexType name="HANDeviceType">
         <xsd:annotation>
           <xsd:documentation> Use HANDevice to create/modify/delete an HAN Device
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:attribute name="CommunicationId" type="tns:HexString16" use="required" />
         <xsd:attribute name="CommunicationType" type="tns:HANDeviceCommunicationTypeType" use="required" />
@@ -942,7 +1032,7 @@
           <xsd:documentation> Use ProvisionHANDevice to assign to or remove from meter a HAN Device. Set IsActive to 0 if you are 
 			  removing the meter to IHD association.
 				Either LinkKeyAlgorithm or LinkKey must be specified. If both are, LinKey is used.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
           <xsd:element minOccurs="0" maxOccurs="unbounded" ref="tns:DeviceClass" />
@@ -962,7 +1052,7 @@
       <xsd:complexType name="MeterDemandResponseGroupType">
         <xsd:annotation>
           <xsd:documentation> Use MeterDemandResponseGroupType to group the meter for demand response.
-		</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:attribute name="MeterName" type="tns:ElsterString" use="required" />
         <xsd:attribute name="Area" type="tns:AreaGroupType" use="optional" />
@@ -978,7 +1068,7 @@
       <xsd:complexType name="UnProvisionHANDeviceType">
         <xsd:annotation>
           <xsd:documentation> Use UnProvisionHANDevice to remove from meter an in-home-device (IHD). 
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:attribute name="CommunicationId" type="tns:HexString16" use="required" />
       </xsd:complexType>
@@ -988,7 +1078,7 @@
           <xsd:documentation> Use HANMessage to send messages to HAN devices.
 				Use one of Broadcast or MeterList. Transmission is not supported at this time. 
         Only Normal Transmission is used regardless of what is specified.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:choice>
           <xsd:element ref="tns:MeterList" />
@@ -1009,7 +1099,7 @@
           <xsd:documentation> Use CancelHANMessage to cancel messages earlier sent to HAN devices. Messages are cancelled immediately.
 			     Identify the message to cancel by MessageName or RefId.
 					 Use either CancelByBroadcast or MeterList.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
           <xsd:element minOccurs="0" ref="tns:MeterList" />
@@ -1023,7 +1113,7 @@
         <xsd:annotation>
           <xsd:documentation> Use EnergyConservationToMeter to assign to or remove from meter   a EnergyConservation (EC). Set IsActive to 0 if
 			  you are removing the association. (Note that at MAS 6.1 remove is not supported).
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence />
         <xsd:attribute name="MeterName" type="tns:ElsterString" use="required" />
@@ -1035,7 +1125,7 @@
         <xsd:annotation>
           <xsd:documentation> Use EnergyConservationToTOUSchedule to assign to or remove from TOUSchedule a EnergyConservation (EC). Set IsActive to 0 if
 			  you are removing the association. (Note that at MAS 6.1 remove is not supported).
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence />
         <xsd:attribute name="TOUSchedule" type="tns:ElsterString" use="required" />
@@ -1048,7 +1138,7 @@
           <xsd:documentation> Use CriticalTierOverride to create a critical pricing event. Use IsActive=0 to cancel the event.
 			Duration is in minutes. And the duration has to be in increments of 15 minutes. Also start time has to start at 15 minute boundaries such
 			14:00:00 or 14:15:00, 15:30:00, 16:45:00 etc.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence />
         <xsd:attribute name="TOUSchedule" type="tns:ElsterString" use="required" />
@@ -1066,7 +1156,7 @@
 					Cancel may be done via broadcast or to a list of meters. Set CancelByBroadcast to true to cancel by broadcast.
 					Specify a list of meters otherwise.
 					Either Name or RefId is required.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
           <xsd:element minOccurs="0" ref="tns:MeterList" />
@@ -1095,7 +1185,7 @@
           <xsd:documentation> Use EmergencyManagementEvent to create an emergency management event to shed load. 
 				Use UtilityEnrollmentGroup to broadcast, otherwise user MeterList.
 				Elser specific broadcast is not available at this time.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
           <xsd:element minOccurs="0" maxOccurs="unbounded" ref="tns:DeviceClass" />
@@ -1194,7 +1284,7 @@
         <xsd:attribute name="AverageLoadAdjustmentPercentage" type="tns:Minus100ToPlus100" use="optional" />
         <xsd:attribute name="DutyCyclePercentage" type="tns:Percent" use="optional" />
         <xsd:attribute name="TransmitToEndDevice" type="tns:ElsterBoolean" use="optional" />
-        <xsd:attribute name="IsCriticalPeakTier" type="tns:ElsterBoolean" use="optional" />
+        <xsd:attribute name="IsCriticalPeakTier" type="tns:ElsterBoolean" use="required" />
         <xsd:attribute name="Tier" type="tns:CTOTier" use="required" />
       </xsd:complexType>
       <xsd:element name="DeviceClass" type="tns:DeviceClassType" />
@@ -1221,7 +1311,7 @@
       <xsd:complexType name="ImportReportType">
         <xsd:annotation>
           <xsd:documentation> Use Report to run any MAS report and invoke xquery queries to examine the xml returned.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
           <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="lax" />
@@ -1247,7 +1337,7 @@
       <xsd:complexType name="PowerStatusCheckType">
         <xsd:annotation>
           <xsd:documentation> Use PowerStatusCheck to outage ping meters. 
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
           <xsd:element maxOccurs="unbounded" ref="tns:CheckMeter" />
@@ -1262,8 +1352,8 @@
           <xsd:element minOccurs="0" name="CheckResult" />
         </xsd:sequence>
         <xsd:attribute name="Outcome" type="tns:Outcome" use="optional" />
-        <xsd:attribute name="VarNameToStoreUnder" type="xsd:string" use="optional" />
-        <xsd:attribute name="VarValue" type="xsd:string" use="optional" />
+        <xsd:attribute name="VarNameToStoreUnder" type="tns:ElsterString" use="optional" />
+        <xsd:attribute name="VarValue" type="tns:LimitedLengthString" use="optional" />
       </xsd:complexType>
       <xsd:element name="FileCheck" type="tns:FileCheckType" />
       <xsd:complexType name="FileCheckType" mixed="true">
@@ -1271,22 +1361,8 @@
           <xsd:element minOccurs="0" name="CheckResult" />
         </xsd:sequence>
         <xsd:attribute name="Outcome" type="tns:Outcome" use="optional" />
-        <xsd:attribute name="VarNameToStoreUnder" type="xsd:string" use="optional" />
-        <xsd:attribute name="VarValue" type="xsd:string" use="optional" />
-      </xsd:complexType>
-      <xsd:element name="WebServiceCall" type="tns:WebServiceCallType" />
-      <xsd:complexType name="WebServiceCallType" mixed="true">
-        <xsd:attribute name="InterfaceName" type="xsd:string" />
-        <xsd:attribute name="CallName" type="xsd:string" />
-        <xsd:attribute name="Username" type="xsd:string" />
-        <xsd:attribute name="Password" type="xsd:string" />
-      </xsd:complexType>
-      <xsd:element name="WaitForAsyncWebServiceCall" type="tns:WaitForAsyncWebServiceCallType" />
-      <xsd:complexType name="WaitForAsyncWebServiceCallType" mixed="true">
-        <xsd:attribute name="InterfaceName" type="xsd:string" />
-        <xsd:attribute name="CallName" type="xsd:string" />
-        <xsd:attribute name="TransactionId" type="xsd:string" use="optional" />
-        <xsd:attribute name="WaitInSeconds" type="xsd:int" />
+        <xsd:attribute name="VarNameToStoreUnder" type="tns:ElsterString" use="optional" />
+        <xsd:attribute name="VarValue" type="tns:LimitedLengthString" use="optional" />
       </xsd:complexType>
       <xsd:element name="MFCheck" type="tns:MFCheckType" />
       <xsd:complexType name="MFCheckType" mixed="true">
@@ -1300,7 +1376,7 @@
         <xsd:annotation>
           <xsd:documentation> Use ConnectMeter to restore electricity connection to the meter. Set ReturnReadings to "1" to get 
 			   readings inthe response.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
           <xsd:element minOccurs="0" ref="tns:FileCheck" />
@@ -1314,7 +1390,7 @@
         <xsd:annotation>
           <xsd:documentation> Use DisconnectMeter to disconnect the meter. Set ReturnReadings to "1" to get 
 			   readings in the response.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
           <xsd:element minOccurs="0" ref="tns:FileCheck" />
@@ -1327,49 +1403,49 @@
       <xsd:complexType name="MarriageFileType">
         <xsd:annotation>
           <xsd:documentation> Use MarriageFile to import a marriage file.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
           <xsd:element minOccurs="0" ref="tns:MFCheck" />
         </xsd:sequence>
-        <xsd:attribute name="FilePath" type="xsd:string" use="required" />
+        <xsd:attribute name="FilePath" type="tns:FilePathType" use="required" />
         <xsd:attribute name="FileIsLocal" type="tns:ElsterBoolean" use="optional" />
       </xsd:complexType>
       <xsd:element name="WANSeed" type="tns:WANSeedType" />
       <xsd:complexType name="WANSeedType">
         <xsd:annotation>
           <xsd:documentation> Use WANSeed to create a new WAN seed.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:attribute name="UtilityName" type="tns:ElsterString" use="required" />
-        <xsd:attribute name="Description" type="xsd:string" use="optional" />
+        <xsd:attribute name="Description" type="tns:LimitedLengthString" use="optional" />
         <xsd:attribute name="AutoGenerate" type="tns:ElsterBoolean" use="required" />
-        <xsd:attribute name="Seed" type="xsd:string" use="optional" />
+        <xsd:attribute name="Seed" type="tns:LimitedLengthString" use="optional" />
       </xsd:complexType>
       <xsd:element name="LANSeed" type="tns:LANSeedType" />
       <xsd:complexType name="LANSeedType">
         <xsd:annotation>
           <xsd:documentation> Use LANSeed to create a new LAN seed.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:attribute name="UtilityName" type="tns:ElsterString" use="required" />
-        <xsd:attribute name="Description" type="xsd:string" use="optional" />
+        <xsd:attribute name="Description" type="tns:LimitedLengthString" use="optional" />
         <xsd:attribute name="AutoGenerate" type="tns:ElsterBoolean" use="required" />
-        <xsd:attribute name="Seed" type="xsd:string" use="optional" />
+        <xsd:attribute name="Seed" type="tns:LimitedLengthString" use="optional" />
       </xsd:complexType>
       <xsd:element name="WICActivationFile" type="tns:WICActivationFileType" />
       <xsd:complexType name="WICActivationFileType">
         <xsd:annotation>
           <xsd:documentation> Use WICActivationFile to import a wic activation file using a URL.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
-        <xsd:attribute name="URL" type="xsd:string" use="required" />
+        <xsd:attribute name="URL" type="tns:LimitedLengthString" use="required" />
       </xsd:complexType>
       <xsd:element name="Utility" type="tns:UtilityType" />
       <xsd:complexType name="UtilityType">
         <xsd:annotation>
           <xsd:documentation> Use Utility to create a new utility.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:attribute name="UtilityName" type="tns:ElsterString" use="required" />
         <xsd:attribute name="LANID" type="xsd:int" use="required" />
@@ -1378,7 +1454,7 @@
       <xsd:complexType name="DeleteUtilityType">
         <xsd:annotation>
           <xsd:documentation> Use DeleteUtility to delete a utility.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:attribute name="UtilityName" type="tns:ElsterString" use="required" />
       </xsd:complexType>
@@ -1386,25 +1462,25 @@
       <xsd:complexType name="DeleteWANSeedType">
         <xsd:annotation>
           <xsd:documentation> Use DeleteWANSeed to delete a WAN Seed.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:attribute name="UtilityName" type="tns:ElsterString" use="required" />
-        <xsd:attribute name="SeedId" type="xsd:string" use="required" />
+        <xsd:attribute name="SeedId" type="tns:LimitedLengthString" use="required" />
       </xsd:complexType>
       <xsd:element name="DeleteLANSeed" type="tns:DeleteLANSeedType" />
       <xsd:complexType name="DeleteLANSeedType">
         <xsd:annotation>
           <xsd:documentation> Use DeleteLANSeed to delete a LAN Seed.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:attribute name="UtilityName" type="tns:ElsterString" use="required" />
-        <xsd:attribute name="SeedId" type="xsd:string" use="required" />
+        <xsd:attribute name="SeedId" type="tns:LimitedLengthString" use="required" />
       </xsd:complexType>
       <xsd:element name="SetWANSecurity" type="tns:SetWANSecurityType" />
       <xsd:complexType name="SetWANSecurityType">
         <xsd:annotation>
           <xsd:documentation> Use SetWANSecurityType to enable or disable WAN security on gatekeepers
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
           <xsd:element maxOccurs="unbounded" name="Gatekeeper" type="tns:MeterNameType" />
@@ -1415,7 +1491,7 @@
       <xsd:complexType name="SetLANSecurityType">
         <xsd:annotation>
           <xsd:documentation> Use SetLANSecurityType to enable or disable LAN security on gatekeepers
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
           <xsd:element maxOccurs="unbounded" name="Gatekeeper" type="tns:MeterNameType" />
@@ -1423,14 +1499,14 @@
         <xsd:attribute name="EnableSecurity" type="tns:ElsterBoolean" use="required" />
       </xsd:complexType>
       <xsd:complexType name="IPAddressType">
-        <xsd:attribute name="IPAddress" type="xsd:string" use="required" />
-        <xsd:attribute name="Mask" type="xsd:string" use="optional" />
+        <xsd:attribute name="IPAddress" type="tns:LimitedLengthString" use="required" />
+        <xsd:attribute name="Mask" type="tns:LimitedLengthString" use="optional" />
       </xsd:complexType>
       <xsd:element name="WANAccessControlList" type="tns:WANAccessControlListType" />
       <xsd:complexType name="WANAccessControlListType">
         <xsd:annotation>
           <xsd:documentation> Use WANAccessControlList to  create a list of ip addressed a GateKepper is allowed to talk to.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
           <xsd:element maxOccurs="8" name="IPAddress" type="tns:IPAddressType" />
@@ -1442,7 +1518,7 @@
       <xsd:complexType name="DeleteWANAccessControlListType">
         <xsd:annotation>
           <xsd:documentation> Use DeleteWANAccessControlList to  delete a list of ip addressed a GateKepper is allowed to talk to.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:attribute name="ACLName" type="tns:ElsterString" use="required" />
       </xsd:complexType>
@@ -1450,7 +1526,7 @@
       <xsd:complexType name="AssignWANAccessControlListToGatekeepersType">
         <xsd:annotation>
           <xsd:documentation> Use AssignWANAccessControlListToGatekeepers to  assign WAN ACL to Gatekeepers.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
           <xsd:element maxOccurs="unbounded" name="Gatekeeper" type="tns:MeterNameType" />
@@ -1522,10 +1598,13 @@
             <xsd:element ref="tns:Job" />
             <xsd:element ref="tns:AddToJob" />
             <xsd:element ref="tns:SubmitJob" />
-            <xsd:element ref="tns:WebServiceCall" />
-            <xsd:element ref="tns:WaitForAsyncWebServiceCall" />
             <xsd:element ref="tns:ScheduleConnectDisconnect" />
             <xsd:element ref="tns:CancelScheduleConnectDisconnect" />
+            <xsd:element ref="tns:LightNodeAdd" />
+            <xsd:element ref="tns:LightNodeModify" />
+            <xsd:element ref="tns:LightNodeDelete" />
+            <xsd:element ref="tns:LightNodeAddDeviceToGroup" />
+            <xsd:element ref="tns:LightNodeRemoveDeviceFromGroup" />
           </xsd:choice>
           <xsd:element minOccurs="0" maxOccurs="unbounded" name="ResultCheck" />
         </xsd:sequence>
@@ -1534,7 +1613,7 @@
       <xsd:complexType name="SequenceType">
         <xsd:annotation>
           <xsd:documentation> A Sequence is a collection of one or more tasks. A task performs a single action such as creating a meter or performing a billing read. A Sequence is executed by executing the individual tasks one at a time as they appear in the file. OnFailure attribute of tasks determine what happens when a task fails. For example, it decides if the execution of the sequence ends or continues.
-			</xsd:documentation>
+      </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
           <xsd:choice minOccurs="0" maxOccurs="unbounded">
@@ -1621,20 +1700,23 @@
             <xsd:element ref="tns:Job" />
             <xsd:element ref="tns:AddToJob" />
             <xsd:element ref="tns:SubmitJob" />
-            <xsd:element ref="tns:WebServiceCall" />
-            <xsd:element ref="tns:WaitForAsyncWebServiceCall" />
             <xsd:element ref="tns:ScheduleConnectDisconnect" />
             <xsd:element ref="tns:CancelScheduleConnectDisconnect" />
+            <xsd:element ref="tns:LightNodeAdd" />
+            <xsd:element ref="tns:LightNodeModify" />
+            <xsd:element ref="tns:LightNodeDelete" />
+            <xsd:element ref="tns:LightNodeAddDeviceToGroup" />
+            <xsd:element ref="tns:LightNodeRemoveDeviceFromGroup" />
           </xsd:choice>
           <xsd:element minOccurs="0" maxOccurs="unbounded" name="ResultCheck" />
         </xsd:sequence>
         <xsd:attribute name="OnFailure" type="tns:OnFailure" use="optional" />
         <xsd:attribute name="IgnoreFailure" type="tns:ElsterBoolean" use="optional" />
         <xsd:attribute name="IsNegative" type="tns:ElsterBoolean" use="optional" />
-        <xsd:attribute name="TaskId" type="xsd:string" use="optional" />
-        <xsd:attribute name="TestId" type="xsd:string" use="optional" />
-        <xsd:attribute name="UserName" type="xsd:string" use="optional" />
-        <xsd:attribute name="Password" type="xsd:string" use="optional" />
+        <xsd:attribute name="TaskId" type="tns:ElsterStringWithCommaColonPipeEtc" use="optional" />
+        <xsd:attribute name="TestId" type="tns:ElsterStringWithCommaColonPipeEtc" use="optional" />
+        <xsd:attribute name="UserName" type="tns:LimitedLengthString" use="optional" />
+        <xsd:attribute name="Password" type="tns:LimitedLengthString" use="optional" />
         <xsd:anyAttribute namespace="##any" processContents="lax" />
       </xsd:complexType>
       <xsd:element name="ImportDataOutput" type="tns:ImportDataOutputType" />
@@ -1726,10 +1808,13 @@
             <xsd:element ref="tns:Job" />
             <xsd:element ref="tns:AddToJob" />
             <xsd:element ref="tns:SubmitJob" />
-            <xsd:element ref="tns:WebServiceCall" />
-            <xsd:element ref="tns:WaitForAsyncWebServiceCall" />
             <xsd:element ref="tns:ScheduleConnectDisconnect" />
             <xsd:element ref="tns:CancelScheduleConnectDisconnect" />
+            <xsd:element ref="tns:LightNodeAdd" />
+            <xsd:element ref="tns:LightNodeModify" />
+            <xsd:element ref="tns:LightNodeDelete" />
+            <xsd:element ref="tns:LightNodeAddDeviceToGroup" />
+            <xsd:element ref="tns:LightNodeRemoveDeviceFromGroup" />
           </xsd:choice>
           <xsd:element minOccurs="0" maxOccurs="unbounded" name="ResultCheck" />
         </xsd:sequence>
@@ -1753,65 +1838,65 @@
       <xsd:element name="MeterDemandResponseGroupOutput" type="tns:MeterDemandResponseGroupOutputType" />
       <xsd:complexType name="MeterDemandResponseGroupOutputType">
         <xsd:sequence>
-          <xsd:element name="RefId" type="xsd:string" />
+          <xsd:element name="RefId" type="tns:LimitedLengthString" />
         </xsd:sequence>
       </xsd:complexType>
       <xsd:element name="ProvisionHANDeviceOutput" type="tns:ProvisionHANDeviceOutputType" />
       <xsd:complexType name="ProvisionHANDeviceOutputType">
         <xsd:sequence>
-          <xsd:element name="RefId" type="xsd:string" />
+          <xsd:element name="RefId" type="tns:LimitedLengthString" />
         </xsd:sequence>
       </xsd:complexType>
       <xsd:element name="UnProvisionHANDeviceOutput" type="tns:UnProvisionHANDeviceOutputType" />
       <xsd:complexType name="UnProvisionHANDeviceOutputType">
         <xsd:sequence>
-          <xsd:element name="RefId" type="xsd:string" />
+          <xsd:element name="RefId" type="tns:LimitedLengthString" />
         </xsd:sequence>
       </xsd:complexType>
       <xsd:element name="HANMessageOutput" type="tns:HANMessageOutputType" />
       <xsd:complexType name="HANMessageOutputType">
         <xsd:sequence>
-          <xsd:element name="RefId" type="xsd:string" />
+          <xsd:element name="RefId" type="tns:LimitedLengthString" />
         </xsd:sequence>
       </xsd:complexType>
       <xsd:element name="EmergencyManagementEventOutput" type="tns:EmergencyManagementEventOutputType" />
       <xsd:complexType name="EmergencyManagementEventOutputType">
         <xsd:sequence>
-          <xsd:element name="RefId" type="xsd:string" />
+          <xsd:element name="RefId" type="tns:LimitedLengthString" />
         </xsd:sequence>
       </xsd:complexType>
       <xsd:element name="DemandResponsePricingOutput" type="tns:DemandResponsePricingOutputType" />
       <xsd:complexType name="DemandResponsePricingOutputType">
         <xsd:sequence>
-          <xsd:element name="TierMapping_RefId" type="xsd:string" />
-          <xsd:element minOccurs="0" name="TierA_RefId" type="xsd:string" />
-          <xsd:element minOccurs="0" name="TierB_RefId" type="xsd:string" />
-          <xsd:element minOccurs="0" name="TierC_RefId" type="xsd:string" />
-          <xsd:element minOccurs="0" name="TierD_RefId" type="xsd:string" />
+          <xsd:element name="TierMapping_RefId" type="tns:LimitedLengthString" />
+          <xsd:element minOccurs="0" name="TierA_RefId" type="tns:LimitedLengthString" />
+          <xsd:element minOccurs="0" name="TierB_RefId" type="tns:LimitedLengthString" />
+          <xsd:element minOccurs="0" name="TierC_RefId" type="tns:LimitedLengthString" />
+          <xsd:element minOccurs="0" name="TierD_RefId" type="tns:LimitedLengthString" />
         </xsd:sequence>
       </xsd:complexType>
       <xsd:element name="ClearDemandResponsePricingOutput" type="tns:ClearDemandResponsePricingOutputType" />
       <xsd:complexType name="ClearDemandResponsePricingOutputType">
         <xsd:sequence>
-          <xsd:element name="RefId" type="xsd:string" />
+          <xsd:element name="RefId" type="tns:LimitedLengthString" />
         </xsd:sequence>
       </xsd:complexType>
       <xsd:element name="ElsterPricingOutput" type="tns:ElsterPricingOutputType" />
       <xsd:complexType name="ElsterPricingOutputType">
         <xsd:sequence>
-          <xsd:element minOccurs="0" name="Season0_RefId" type="xsd:string" />
-          <xsd:element minOccurs="0" name="Season1_RefId" type="xsd:string" />
-          <xsd:element minOccurs="0" name="Season2_RefId" type="xsd:string" />
-          <xsd:element minOccurs="0" name="Season3_RefId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Season0_RefId" type="tns:LimitedLengthString" />
+          <xsd:element minOccurs="0" name="Season1_RefId" type="tns:LimitedLengthString" />
+          <xsd:element minOccurs="0" name="Season2_RefId" type="tns:LimitedLengthString" />
+          <xsd:element minOccurs="0" name="Season3_RefId" type="tns:LimitedLengthString" />
         </xsd:sequence>
       </xsd:complexType>
       <xsd:element name="EnergyConservationOutput" type="tns:EnergyConservationOutputType" />
       <xsd:complexType name="EnergyConservationOutputType">
         <xsd:sequence>
-          <xsd:element minOccurs="0" name="TierA_RefId" type="xsd:string" />
-          <xsd:element minOccurs="0" name="TierB_RefId" type="xsd:string" />
-          <xsd:element minOccurs="0" name="TierC_RefId" type="xsd:string" />
-          <xsd:element minOccurs="0" name="TierD_RefId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="TierA_RefId" type="tns:LimitedLengthString" />
+          <xsd:element minOccurs="0" name="TierB_RefId" type="tns:LimitedLengthString" />
+          <xsd:element minOccurs="0" name="TierC_RefId" type="tns:LimitedLengthString" />
+          <xsd:element minOccurs="0" name="TierD_RefId" type="tns:LimitedLengthString" />
         </xsd:sequence>
       </xsd:complexType>
       <xsd:simpleType name="Outcome">
@@ -1912,6 +1997,8 @@
             <xsd:element ref="tns:Rex2Set1IntervalConfig" />
             <xsd:element ref="tns:Rex2Set2IntervalConfig" />
             <xsd:element ref="tns:A3NICDataFormatConfig" />
+            <xsd:element ref="tns:InstrumentationDataMonitoringProfile" />
+            <xsd:element ref="tns:Rex2DataFormatConfig" />
           </xsd:choice>
         </xsd:sequence>
         <xsd:attribute name="PROFILE_DESCRIPTION" type="tns:ElsterString" />
@@ -2249,6 +2336,8 @@
         <xsd:attribute name="DISPLAY_ORDER_TIME_AND_RATE" type="tns:Rex2DisplayProfileOrderNumber" use="optional" />
         <xsd:attribute name="DISPLAY_ORDER_TOTAL_FIRST_ENERGY" type="tns:Rex2DisplayProfileOrderNumber" use="optional" />
         <xsd:attribute name="DISPLAY_ORDER_TOTAL_SECOND_ENERGY" type="tns:Rex2DisplayProfileOrderNumber" use="optional" />
+        <xsd:attribute name="DISPLAY_ORDER_TOTAL_THIRD_ENERGY" type="tns:Rex2DisplayProfileOrderNumber" use="optional" />
+        <xsd:attribute name="DISPLAY_ORDER_TOTAL_FOURTH_ENERGY" type="tns:Rex2DisplayProfileOrderNumber" use="optional" />
         <xsd:attribute name="DISPLAY_ORDER_TIER_A_ENERGY" type="tns:Rex2DisplayProfileOrderNumber" use="optional" />
         <xsd:attribute name="DISPLAY_ORDER_TIER_B_ENERGY" type="tns:Rex2DisplayProfileOrderNumber" use="optional" />
         <xsd:attribute name="DISPLAY_ORDER_TIER_C_ENERGY" type="tns:Rex2DisplayProfileOrderNumber" use="optional" />
@@ -2267,20 +2356,21 @@
         <xsd:attribute name="DISPLAY_ORDER_PHASE_VOLTAGE" type="tns:Rex2DisplayProfileOrderNumber" use="optional" />
         <xsd:attribute name="DISPLAY_ORDER_PHASE_INSTANTANEOUS_DEMAND" type="tns:Rex2DisplayProfileOrderNumber" use="optional" />
         <xsd:attribute fixed="13" name="PROFILE_TYPE" type="xsd:int" />
+        <xsd:attribute fixed="0" name="DISPLAY_HOLD_TIME" type="xsd:int" />
       </xsd:complexType>
       <xsd:complexType name="CHECKIN_Type">
         <xsd:sequence />
-        <xsd:attribute name="Primary_AP_TITLE" type="xsd:string" />
+        <xsd:attribute name="Primary_AP_TITLE" type="tns:LimitedLengthString" />
         <xsd:attribute name="Primary_IP" type="tns:IPAddress" />
         <xsd:attribute name="Primary_PORT" type="xsd:int" />
         <xsd:attribute fixed="0" name="Primary_PROTOCOL" type="xsd:int" />
         <xsd:attribute name="Primary_SECURITYMETHOD" type="tns:SecurityMethodType" />
-        <xsd:attribute name="Secondary_AP_TITLE" type="xsd:string" />
+        <xsd:attribute name="Secondary_AP_TITLE" type="tns:LimitedLengthString" />
         <xsd:attribute name="Secondary_IP" type="tns:IPAddress" />
         <xsd:attribute name="Secondary_PORT" type="xsd:int" />
         <xsd:attribute fixed="0" name="Secondary_PROTOCOL" type="xsd:int" />
         <xsd:attribute name="Secondary_SECURITYMETHOD" type="tns:SecurityMethodType" />
-        <xsd:attribute name="Last_AP_TITLE" type="xsd:string" />
+        <xsd:attribute name="Last_AP_TITLE" type="tns:LimitedLengthString" />
         <xsd:attribute name="Last_IP" type="tns:IPAddress" />
         <xsd:attribute name="Last_PORT" type="xsd:int" />
         <xsd:attribute fixed="0" name="Last_PROTOCOL" type="xsd:int" />
@@ -2386,20 +2476,32 @@
       <xsd:complexType name="A3NICDataFormatConfigType">
         <xsd:annotation>
           <xsd:documentation>
-      Set DATA_FORMAT to 0 for Factory Default: In addition to the information included with the original A3NIC data format (131), this option will provide instantaneous current and instantaneous system power factor values.
-      Set DATA_FORMAT to 1 for Demand Only: Maximum demand and maximum cumulative demand values will be reported. Time of use data will not be included.
+			Set DATA_FORMAT to 0 for Factory Default: In addition to the information included with the original A3NIC data format (131), this option will provide instantaneous current and instantaneous system power factor values.
+			Set DATA_FORMAT to 1 for Demand Only: Maximum demand and maximum cumulative demand values will be reported. Time of use data will not be included.
      </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence />
         <xsd:attribute name="DATA_FORMAT" type="tns:ElsterBoolean" use="required" />
         <xsd:attribute fixed="26" name="PROFILE_TYPE" type="xsd:int" />
       </xsd:complexType>
+      <xsd:element name="Rex2DataFormatConfig" type="tns:Rex2DataFormatConfigType" />
+      <xsd:complexType name="Rex2DataFormatConfigType">
+        <xsd:annotation>
+          <xsd:documentation>
+			Set DATA_FORMAT to 0 for Factory Default: The information included with the original REX2 (5.1, 5.2 and 5.3) data format 14/15.
+			Set DATA_FORMAT to 1 for Format 20/21: Same as the Factory Default with additional information Phase A Current and Power Factor. REX2 data format 20/21.
+     </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence />
+        <xsd:attribute name="DATA_FORMAT" type="tns:ElsterBoolean" use="required" />
+        <xsd:attribute fixed="33" name="PROFILE_TYPE" type="xsd:int" />
+      </xsd:complexType>
       <xsd:element name="GasConfig" type="tns:GasConfigType" />
       <xsd:complexType name="GasConfigType">
         <xsd:annotation>
           <xsd:documentation>
-     There are currently no attributes for this type
-     </xsd:documentation>
+			 There are currently no attributes for this type
+			 </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence />
         <xsd:attribute fixed="103" name="PROFILE_TYPE" type="xsd:int" />
@@ -2423,7 +2525,6 @@
      Set PROFILE_INTERVAL_LENGTH: Number of minutes for interval data period.
 	                              15 minutes = 0  30 minutes = 1  5 minutes = 2  60 minutes = 3
 	 Set PROFILE_DIVISOR: Used to scale down the number of Kh pulse counts recorded in each interval data period
-
      </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence />
@@ -2494,6 +2595,20 @@
         <xsd:attribute name="CHANNEL_2_SOURCE" type="tns:ChannelSourceType" use="optional" />
         <xsd:attribute name="PROFILE_DIVISOR" type="tns:ProfileDivisorType" use="optional" />
         <xsd:attribute fixed="24" name="PROFILE_TYPE" type="xsd:int" />
+      </xsd:complexType>
+      <xsd:complexType name="ControlFlagsType">
+        <xsd:attribute name="SILENCE_SCHEDULED_PUSHES" type="xsd:boolean" />
+      </xsd:complexType>
+      <xsd:element name="InstrumentationDataMonitoringProfile" type="tns:InstrumentationDataMonitoringProfileType" />
+      <xsd:complexType name="InstrumentationDataMonitoringProfileType">
+        <xsd:all>
+          <xsd:element name="CONTROL_FLAGS" type="tns:ControlFlagsType" />
+        </xsd:all>
+        <xsd:attribute name="START_UTC_TIMESTAMP" type="tns:ElsterDateWithNow" use="required" />
+        <xsd:attribute name="STOP_UTC_TIMESTAMP" type="tns:ElsterDateWithNow" use="required" />
+        <xsd:attribute name="PERIOD" type="xsd:int" use="required" />
+        <xsd:attribute name="RANDOM_FACTOR" type="xsd:int" />
+        <xsd:attribute fixed="32" name="PROFILE_TYPE" type="xsd:int" />
       </xsd:complexType>
       <xsd:simpleType name="ElsterDate">
         <xsd:annotation>
@@ -5912,6 +6027,229 @@
           </xsd:extension>
         </xsd:complexContent>
       </xsd:complexType>
+      <xsd:complexType name="DisplayAdvancedRex2ConfigProfileRecordType">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns:ConfigProfileRecordType">
+            <xsd:sequence>
+              <xsd:element name="HoldTime" type="xsd:int" />
+              <xsd:element name="CustomDisplayString1" nillable="true" type="xsd:string" />
+              <xsd:element name="CustomDisplayString2" nillable="true" type="xsd:string" />
+              <xsd:element name="CustomDisplayString3" nillable="true" type="xsd:string" />
+              <xsd:element name="CustomDisplayString4" nillable="true" type="xsd:string" />
+              <xsd:element name="CustString1Order" type="xsd:int" />
+              <xsd:element name="CustString2Order" type="xsd:int" />
+              <xsd:element name="CustString3Order" type="xsd:int" />
+              <xsd:element name="CustString4Order" type="xsd:int" />
+              <xsd:element name="LcdTestOrder" type="xsd:int" />
+              <xsd:element name="ErrorOrder" type="xsd:int" />
+              <xsd:element name="StatusOrder" type="xsd:int" />
+              <xsd:element name="TimeAndTierOrder" type="xsd:int" />
+              <xsd:element name="FirstEnergyOrder" type="xsd:int" />
+              <xsd:element name="TierAOrder" type="xsd:int" />
+              <xsd:element name="TierBOrder" type="xsd:int" />
+              <xsd:element name="TierCOrder" type="xsd:int" />
+              <xsd:element name="TierDOrder" type="xsd:int" />
+              <xsd:element name="TierASecondEnergyOrder" type="xsd:int" />
+              <xsd:element name="TierBSecondEnergyOrder" type="xsd:int" />
+              <xsd:element name="TierCSecondEnergyOrder" type="xsd:int" />
+              <xsd:element name="TierDSecondEnergyOrder" type="xsd:int" />
+              <xsd:element name="SecondEnergyOrder" type="xsd:int" />
+              <xsd:element name="NetRegStatusOrder" type="xsd:int" />
+              <xsd:element name="LoadControlOrder" type="xsd:int" />
+              <xsd:element name="FirmwareVersionOrder" type="xsd:int" />
+              <xsd:element name="PhaseVoltageOrder" type="xsd:int" />
+              <xsd:element name="PhaseInstDemandOrder" type="xsd:int" />
+              <xsd:element name="ThirdEnergyOrder" type="xsd:int" />
+              <xsd:element name="FourthEnergyOrder" type="xsd:int" />
+              <xsd:element name="FifthEnergyOrder" type="xsd:int" />
+              <xsd:element name="SixthEnergyOrder" type="xsd:int" />
+              <xsd:element name="PowerFactorOrder" type="xsd:int" />
+              <xsd:element name="PhaseACurrentOrder" type="xsd:int" />
+              <xsd:element name="PhaseCCurrentOrder" type="xsd:int" />
+              <xsd:element name="TotalFirstDemandOrder" type="xsd:int" />
+              <xsd:element name="TierAFirstDemandOrder" type="xsd:int" />
+              <xsd:element name="TierBFirstDemandOrder" type="xsd:int" />
+              <xsd:element name="TierCFirstDemandOrder" type="xsd:int" />
+              <xsd:element name="TierDFirstDemandOrder" type="xsd:int" />
+              <xsd:element name="TotalSecondDemandOrder" type="xsd:int" />
+              <xsd:element name="TierASecondDemandOrder" type="xsd:int" />
+              <xsd:element name="TierBSecondDemandOrder" type="xsd:int" />
+              <xsd:element name="TierCSecondDemandOrder" type="xsd:int" />
+              <xsd:element name="TierDSecondDemandOrder" type="xsd:int" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="DisplayAdvancedRex2V2ConfigProfileRecordType">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns:ConfigProfileRecordType">
+            <xsd:sequence>
+              <xsd:element name="HoldTime" type="xsd:int" />
+              <xsd:element name="CustomDisplayString1" nillable="true" type="xsd:string" />
+              <xsd:element name="CustomDisplayString2" nillable="true" type="xsd:string" />
+              <xsd:element name="CustomDisplayString3" nillable="true" type="xsd:string" />
+              <xsd:element name="CustomDisplayString4" nillable="true" type="xsd:string" />
+              <xsd:element name="CustString1Order" type="xsd:int" />
+              <xsd:element name="CustString2Order" type="xsd:int" />
+              <xsd:element name="CustString3Order" type="xsd:int" />
+              <xsd:element name="CustString4Order" type="xsd:int" />
+              <xsd:element name="LcdTestOrder" type="xsd:int" />
+              <xsd:element name="ErrorOrder" type="xsd:int" />
+              <xsd:element name="StatusOrder" type="xsd:int" />
+              <xsd:element name="TimeAndTierOrder" type="xsd:int" />
+              <xsd:element name="FirstEnergyOrder" type="xsd:int" />
+              <xsd:element name="TierAOrder" type="xsd:int" />
+              <xsd:element name="TierBOrder" type="xsd:int" />
+              <xsd:element name="TierCOrder" type="xsd:int" />
+              <xsd:element name="TierDOrder" type="xsd:int" />
+              <xsd:element name="TierASecondEnergyOrder" type="xsd:int" />
+              <xsd:element name="TierBSecondEnergyOrder" type="xsd:int" />
+              <xsd:element name="TierCSecondEnergyOrder" type="xsd:int" />
+              <xsd:element name="TierDSecondEnergyOrder" type="xsd:int" />
+              <xsd:element name="SecondEnergyOrder" type="xsd:int" />
+              <xsd:element name="NetRegStatusOrder" type="xsd:int" />
+              <xsd:element name="LoadControlOrder" type="xsd:int" />
+              <xsd:element name="FirmwareVersionOrder" type="xsd:int" />
+              <xsd:element name="PhaseVoltageOrder" type="xsd:int" />
+              <xsd:element name="PhaseInstDemandOrder" type="xsd:int" />
+              <xsd:element name="ThirdEnergyOrder" type="xsd:int" />
+              <xsd:element name="FourthEnergyOrder" type="xsd:int" />
+              <xsd:element name="FifthEnergyOrder" type="xsd:int" />
+              <xsd:element name="SixthEnergyOrder" type="xsd:int" />
+              <xsd:element name="PowerFactorOrder" type="xsd:int" />
+              <xsd:element name="PhaseACurrentOrder" type="xsd:int" />
+              <xsd:element name="PhaseCCurrentOrder" type="xsd:int" />
+              <xsd:element name="TotalFirstDemandOrder" type="xsd:int" />
+              <xsd:element name="TierAFirstDemandOrder" type="xsd:int" />
+              <xsd:element name="TierBFirstDemandOrder" type="xsd:int" />
+              <xsd:element name="TierCFirstDemandOrder" type="xsd:int" />
+              <xsd:element name="TierDFirstDemandOrder" type="xsd:int" />
+              <xsd:element name="TotalSecondDemandOrder" type="xsd:int" />
+              <xsd:element name="TierASecondDemandOrder" type="xsd:int" />
+              <xsd:element name="TierBSecondDemandOrder" type="xsd:int" />
+              <xsd:element name="TierCSecondDemandOrder" type="xsd:int" />
+              <xsd:element name="TierDSecondDemandOrder" type="xsd:int" />
+              <xsd:element name="CurrentDateOrder" type="xsd:int" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ReadingFilterConfigProfileRecordType">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns:ConfigProfileRecordType">
+            <xsd:sequence>
+              <xsd:element minOccurs="1" maxOccurs="unbounded" name="ObjectNumber" type="xsd:long" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="SynergyNetNotificationScheduleType">
+        <xsd:sequence>
+          <xsd:element name="Type" nillable="true" type="xsd:string" />
+          <xsd:element name="Dep" nillable="true" type="xsd:string" />
+          <xsd:element name="Trigger">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:int">
+                <xsd:minInclusive value="0" />
+                <xsd:maxInclusive value="1" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="TimeStartOffset">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:int">
+                <xsd:minInclusive value="0" />
+                <xsd:maxInclusive value="86400" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="Period">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:int">
+                <xsd:minInclusive value="0" />
+                <xsd:maxInclusive value="86400" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="RetryInterval">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:int">
+                <xsd:minInclusive value="0" />
+                <xsd:maxInclusive value="65535" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="MaxRetries">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:int">
+                <xsd:minInclusive value="0" />
+                <xsd:maxInclusive value="255" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="Priority">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:int">
+                <xsd:minInclusive value="0" />
+                <xsd:maxInclusive value="15" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="RandomFactor">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:int">
+                <xsd:minInclusive value="0" />
+                <xsd:maxInclusive value="300" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="IncludeStatus">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:int">
+                <xsd:minInclusive value="0" />
+                <xsd:maxInclusive value="1" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="AckRequired">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:int">
+                <xsd:minInclusive value="0" />
+                <xsd:maxInclusive value="1" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="Enabled">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:int">
+                <xsd:minInclusive value="0" />
+                <xsd:maxInclusive value="1" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SynergyNetNotificationScheduleProfileRecordType">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns:ConfigProfileRecordType">
+            <xsd:sequence>
+              <xsd:element name="StatusType" type="tns:SynergyNetNotificationScheduleType" />
+              <xsd:element name="RegisterData" type="tns:SynergyNetNotificationScheduleType" />
+              <xsd:element name="LowPriorityEventLogMetrology" type="tns:SynergyNetNotificationScheduleType" />
+              <xsd:element name="LowPriorityEventLogComms" type="tns:SynergyNetNotificationScheduleType" />
+              <xsd:element name="HighPriorityEventLogMetrology" type="tns:SynergyNetNotificationScheduleType" />
+              <xsd:element name="HighPriorityEventLogComms" type="tns:SynergyNetNotificationScheduleType" />
+              <xsd:element name="PushStatistics" type="tns:SynergyNetNotificationScheduleType" />
+              <xsd:element name="IntervalDataSet1" type="tns:SynergyNetNotificationScheduleType" />
+              <xsd:element name="IntervalDataSet2" type="tns:SynergyNetNotificationScheduleType" />
+              <xsd:element name="Restoration" type="tns:SynergyNetNotificationScheduleType" />
+              <xsd:element name="DemandResetData" type="tns:SynergyNetNotificationScheduleType" />
+              <xsd:element name="SeasonChangeData" type="tns:SynergyNetNotificationScheduleType" />
+              <xsd:element name="SelfReadData" type="tns:SynergyNetNotificationScheduleType" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
       <xsd:complexType name="GkScheduleConfigProfileRecordType">
         <xsd:complexContent mixed="false">
           <xsd:extension base="tns:ConfigProfileRecordType">
@@ -5998,6 +6336,28 @@
           <xsd:extension base="tns:ConfigProfileRecordType">
             <xsd:sequence>
               <xsd:element name="dataFormat" type="xsd:int" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Rex2DataFormatProfileReportRecordType">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns:ConfigProfileRecordType">
+            <xsd:sequence>
+              <xsd:element name="dataFormat" type="xsd:int" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="InstrumentationDataMonitoringProfileRecordType">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns:ConfigProfileRecordType">
+            <xsd:sequence>
+              <xsd:element minOccurs="1" maxOccurs="1" name="START_UTC_TIMESTAMP" type="tns:ElsterDateWithNow" />
+              <xsd:element minOccurs="1" maxOccurs="1" name="STOP_UTC_TIMESTAMP" type="tns:ElsterDateWithNow" />
+              <xsd:element minOccurs="1" maxOccurs="1" name="PERIOD" type="xsd:int" />
+              <xsd:element name="RANDOM_FACTOR" type="xsd:int" />
+              <xsd:element maxOccurs="1" name="CONTROL_FLAGS" type="tns:ControlFlagsType" />
             </xsd:sequence>
           </xsd:extension>
         </xsd:complexContent>
@@ -6371,7 +6731,12 @@
               <xsd:element name="Gatekeeper" nillable="true" type="xsd:string" />
               <xsd:element name="LastRegisterRead" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
               <xsd:element name="LastIntervalRead" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="LastIntervalReadSet2" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="LastIntervalReadSet3" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="LastSelfRead" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
               <xsd:element name="LastRegistered" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="LastPrevPeriod" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="LastPrevSeason" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
               <xsd:element name="NominalVoltage" nillable="true" type="xsd:string" />
               <xsd:element name="OutageRegionId" nillable="true" type="xsd:string" />
               <xsd:element name="RouteId" nillable="true" type="xsd:string" />
@@ -6413,6 +6778,44 @@
               <xsd:element name="Text" nillable="true" type="xsd:string" />
               <xsd:element name="Cls" nillable="true" type="xsd:string" />
               <xsd:element name="Id" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="JobStatusReportBean">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns:RecordType">
+            <xsd:sequence>
+              <xsd:element name="JobId" type="xsd:int" />
+              <xsd:element name="JobName" type="xsd:string" />
+              <xsd:element name="JobStatus" nillable="true" type="xsd:string" />
+              <xsd:element name="JobCreationTime" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="JobStartedTime" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="JobCompletedTime" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="JobExpirationTime" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="JobSubmitted" nillable="true" type="xsd:string" />
+              <xsd:element name="WorkFlowId" nillable="true" type="xsd:int" />
+              <xsd:element name="TaskId" type="xsd:int" />
+              <xsd:element name="TaskStatus" nillable="true" type="xsd:string" />
+              <xsd:element name="TaskErrorCode" nillable="true" type="xsd:int" />
+              <xsd:element name="TaskErrorMessage" nillable="true" type="xsd:string" />
+              <xsd:element name="TaskStartAfter" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="TaskStartedTime" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="TaskCompletedTime" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="TaskExpirationTime" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="MeterName" nillable="true" type="xsd:string" />
+              <xsd:element name="GKName" nillable="true" type="xsd:string" />
+              <xsd:element name="CommandName" nillable="true" type="xsd:string" />
+              <xsd:element name="ComponentName" nillable="true" type="xsd:string" />
+              <xsd:element name="TaskPriority" nillable="true" type="xsd:int" />
+              <xsd:element name="TaskMaxRetries" nillable="true" type="xsd:int" />
+              <xsd:element name="TaskRetryInterval" nillable="true" type="xsd:int" />
+              <xsd:element name="TaskRetries" nillable="true" type="xsd:int" />
+              <xsd:element name="WANDeviceStartTime" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="WANDeviceCompletionTime" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="ContextId" nillable="true" type="xsd:string" />
+              <xsd:element name="NotificationInfo" nillable="true" type="xsd:string" />
+              <xsd:element name="NotificationType" nillable="true" type="xsd:int" />
             </xsd:sequence>
           </xsd:extension>
         </xsd:complexContent>
@@ -6551,6 +6954,122 @@
               <xsd:element name="CommunicationId" type="xsd:string" />
               <xsd:element name="State" type="xsd:string" />
               <xsd:element name="MeterName" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="DataSetBean">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns:RecordType">
+            <xsd:sequence>
+              <xsd:element name="DataSetName" type="xsd:string" />
+              <xsd:element name="DataSetValue" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="NodesOrphanedBean">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns:RecordType">
+            <xsd:sequence>
+              <xsd:element name="MeterIrn" type="xsd:int" />
+              <xsd:element name="DeviceName" type="xsd:string" />
+              <xsd:element name="SerialNumber" type="xsd:string" />
+              <xsd:element name="InstallDate" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="LastRegistration" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="LastRegisterRead" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="LastIntervalDataRead" type="xsd:string" />
+              <xsd:element name="Lanid" nillable="true" type="xsd:string" />
+              <xsd:element name="DeviceType" type="xsd:string" />
+              <xsd:element name="TypeDescription" type="xsd:string" />
+              <xsd:element name="Latitude" nillable="true" type="xsd:string" />
+              <xsd:element name="Longitude" nillable="true" type="xsd:string" />
+              <xsd:element name="PrevGk" type="xsd:string" />
+              <xsd:element name="AccountNumber" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="GKAssociatedNodesBean">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns:RecordType">
+            <xsd:sequence>
+              <xsd:element name="GKName" nillable="true" type="xsd:string" />
+              <xsd:element name="Type" type="xsd:string" />
+              <xsd:element name="TypeDescription" type="xsd:string" />
+              <xsd:element name="MeterIrn" type="xsd:int" />
+              <xsd:element name="MeterName" type="xsd:string" />
+              <xsd:element name="Lanid" nillable="true" type="xsd:string" />
+              <xsd:element name="SerialNumber" type="xsd:string" />
+              <xsd:element name="InstallDate" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="LastRegistration" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="LastRegisterRead" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="LastModifiedDate" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="LastConnectTime" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="LastDownload" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="ReadAttempts" type="xsd:int" />
+              <xsd:element name="ReadResponses" type="xsd:int" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="MeterDataBean">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns:RecordType">
+            <xsd:sequence>
+              <xsd:element name="MeterIrn" type="xsd:int" />
+              <xsd:element name="MeterName" type="xsd:string" />
+              <xsd:element name="SerialNum" type="xsd:string" />
+              <xsd:element name="AccountName" nillable="true" type="xsd:string" />
+              <xsd:element name="MeterStyleIrn" type="xsd:int" />
+              <xsd:element name="MeterType" type="xsd:string" />
+              <xsd:element name="MeterTypeDesc" nillable="true" type="xsd:string" />
+              <xsd:element name="LanID" nillable="true" type="xsd:string" />
+              <xsd:element name="InstallDate" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="LastConnectTime" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="LastDisconnectTime" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="RegistrationDate" nillable="true" />
+              <xsd:element name="GkIrn" type="xsd:int" />
+              <xsd:element name="CollectorName" nillable="true" />
+              <xsd:element name="MeterInfo" type="xsd:int" />
+              <xsd:element name="State" nillable="true" type="xsd:string" />
+              <xsd:element name="InventoriedDate" nillable="true" type="tns:StandardDateTimePlusTimeZoneType" />
+              <xsd:element name="TypeDescription" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="DeviceOnProfileBean">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns:RecordType">
+            <xsd:sequence>
+              <xsd:element name="DeviceName" type="xsd:string" />
+              <xsd:element name="Type" type="xsd:string" />
+              <xsd:element name="Status" type="xsd:string" />
+              <xsd:element name="Account" nillable="true" type="xsd:string" />
+              <xsd:element name="Assigned" nillable="true" type="xsd:string" />
+              <xsd:element name="Sync" nillable="true" type="xsd:string" />
+              <xsd:element name="Desc" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ScheduleNameBean">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns:RecordType">
+            <xsd:sequence>
+              <xsd:element name="ScheduleName" type="xsd:string" />
+              <xsd:element name="ScheduleValue" type="xsd:string" />
+              <xsd:element name="ScheduleId" type="xsd:int" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ScheduleNameListBean">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns:RecordType">
+            <xsd:sequence>
+              <xsd:element name="ScheduleName" type="xsd:string" />
             </xsd:sequence>
           </xsd:extension>
         </xsd:complexContent>
@@ -7397,10 +7916,10 @@
   </wsdl:binding>
   <wsdl:service name="MAS">
     <wsdl:port name="MASSoap12" binding="tns:MASSoap12">
-      <soap12:address location="http://192.168.100.41/axis2/services/MAS.MASSoap12/" />
+      <soap12:address location="/MAS" />
     </wsdl:port>
     <wsdl:port name="MASSoap" binding="tns:MASSoap">
-      <soap:address location="http://192.168.100.41/axis2/services/MAS.MASSoap/" />
+      <soap:address location="http://192.168.100.41/ws-mas/services/MAS" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
