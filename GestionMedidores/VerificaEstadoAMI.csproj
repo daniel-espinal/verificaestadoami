@@ -51,8 +51,10 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="solg.lib.netframework, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>bin\solg.lib.netframework.dll</HintPath>
+    <Reference Include="DevExpress.Data.v21.1, Version=21.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v21.1, Version=21.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="solg.lib.netframework">
+      <HintPath>solg.lib.netframework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -214,6 +216,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <Content Include="solg.lib.netframework.dll" />
   </ItemGroup>
   <ItemGroup>
     <WebReferenceUrl Include="http://192.168.100.41/ms-cd-3/services/CD_ServerSoap%3fwsdl">
